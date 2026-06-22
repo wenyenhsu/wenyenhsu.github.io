@@ -29,7 +29,7 @@ const PROJECTS = [
     title: 'AKB Daily Intelligence',
     description:
       'A self-evolving knowledge graph that turns raw information into structured, reusable intelligence via LLM reasoning and embedding-based memory.',
-    image: 'image/AKB_structure.png',
+    image: 'image/AKB_architect.png',
     repo: 'llm-powered-daily-intelligence-system',
     tags: ['LLM', 'RAG', 'Docker' ,'Knowledge Graph', 'Ollama'],
     links: {
