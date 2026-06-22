@@ -15,9 +15,9 @@ const PROJECTS = [
     title: 'JägerOS',
     description:
       'A Django-based career intelligence platform for job tracking, skill extraction with Ollama, market demand analysis, and resume matching.',
-    image: '',
+    image: 'image/jeagor_structure.png',
     repo: 'jeageros-career-intelligence-platform',
-    tags: ['RAG', 'LLM', 'Django', 'Docker', 'PostgreSQL'],
+    tags: ['LLM', 'RAG', 'Django', 'Docker', 'PostgreSQL','Ollama'],
     links: {
       app: null,
       github: 'https://github.com/wenyenhsu/jeageros-career-intelligence-platform',
@@ -29,9 +29,9 @@ const PROJECTS = [
     title: 'AKB Daily Intelligence',
     description:
       'A self-evolving knowledge graph that turns raw information into structured, reusable intelligence via LLM reasoning and embedding-based memory.',
-    image: '',
+    image: 'image/akb_daily_intelligence.png',
     repo: 'llm-powered-daily-intelligence-system',
-    tags: ['LLM', 'RAG', 'Knowledge Graph', 'Ollama'],
+    tags: ['LLM', 'RAG', 'Docker' ,'Knowledge Graph', 'Ollama'],
     links: {
       app: null,
       github: 'https://github.com/wenyenhsu/llm-powered-daily-intelligence-system',
@@ -40,24 +40,10 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: 'AI GUI Automation Agent',
-    description:
-      'Vision-based desktop automation agent that detects UI elements and drives workflows through a Streamlit demo interface.',
-    image: '',
-    repo: 'ai-gui-automation-agent-vision-based-detection',
-    tags: ['Computer Vision', 'LLM', 'Streamlit', 'Automation'],
-    links: {
-      app: null,
-      github: 'https://github.com/wenyenhsu/ai-gui-automation-agent-vision-based-detection',
-      blog: null,
-    },
-    featured: true,
-  },
-  {
     title: 'RoBERTa Sentiment Pipeline',
     description:
       'End-to-end RoBERTa ensemble pipeline for social media text: collection, preprocessing, training, and evaluation.',
-    image: '',
+    image: 'image/roberta_sentiment_pipeline.png',
     repo: 'llm-roberta-based-sentiment-classification-with-ensemble-approach',
     tags: ['NLP', 'RoBERTa', 'Ensemble', 'Python'],
     links: {
@@ -68,19 +54,33 @@ const PROJECTS = [
     featured: true,
   },
   {
-    title: 'DeFungi CNN Pipeline',
+    title: 'TPC (Two-Phase Classification)',
     description:
-      'TensorFlow/Keras image classification pipeline comparing multiple CNN architectures on the DeFungi fungal dataset.',
-    image: '',
-    repo: 'tensorflow-defungi-image-classification-pipeline',
-    tags: ['TensorFlow', 'CNN', 'Computer Vision', 'Keras'],
+      'A Novel Classification Method for Imbalanced Data Using Two-Phase Cost-Sensitive SVM and Genetic Algorithm',
+    image: 'image/tpc_classification.png',
+    repo: 'classification-method-for-imbalanced-data-using-two-phase-cost-sensitive-svm-and-genetic-algorithm',
+    tags: ['NLP', 'Imbalanced Dataset', 'Genetic Algorithm', 'Python'],
     links: {
       app: null,
-      github: 'https://github.com/wenyenhsu/tensorflow-defungi-image-classification-pipeline',
+      github: 'https://github.com/wenyenhsu/classification-method-for-imbalanced-data-using-two-phase-cost-sensitive-svm-and-genetic-algorithm',
       blog: null,
     },
     featured: true,
   }
+  // {
+  //   title: 'DeFungi CNN Pipeline',
+  //   description:
+  //     'TensorFlow/Keras image classification pipeline comparing multiple CNN architectures on the DeFungi fungal dataset.',
+  //   image: '',
+  //   repo: 'tensorflow-defungi-image-classification-pipeline',
+  //   tags: ['TensorFlow', 'CNN', 'Computer Vision', 'Keras'],
+  //   links: {
+  //     app: null,
+  //     github: 'https://github.com/wenyenhsu/tensorflow-defungi-image-classification-pipeline',
+  //     blog: null,
+  //   },
+  //   featured: true,
+  // }
 ];
 
 const GITHUB_USER = 'wenyenhsu';
