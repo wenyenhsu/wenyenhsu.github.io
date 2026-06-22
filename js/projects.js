@@ -80,21 +80,7 @@ const PROJECTS = [
       blog: null,
     },
     featured: true,
-  },
-  {
-    title: 'Quant Research Platform',
-    description:
-      'A quantitative research workspace for exploring market data, backtesting strategies, and analyzing financial signals.',
-    image: '',
-    repo: 'quant-research-platform',
-    tags: ['Quant', 'Python', 'Data Analysis'],
-    links: {
-      app: null,
-      github: 'https://github.com/wenyenhsu/quant-research-platform',
-      blog: null,
-    },
-    featured: true,
-  },
+  }
 ];
 
 const GITHUB_USER = 'wenyenhsu';
