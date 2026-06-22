@@ -29,7 +29,7 @@ const PROJECTS = [
     title: 'AKB Daily Intelligence',
     description:
       'A self-evolving knowledge graph that turns raw information into structured, reusable intelligence via LLM reasoning and embedding-based memory.',
-    image: 'image/akb_daily_intelligence.png',
+    image: 'image/AKB_architect.png',
     repo: 'llm-powered-daily-intelligence-system',
     tags: ['LLM', 'RAG', 'Docker' ,'Knowledge Graph', 'Ollama'],
     links: {
@@ -43,7 +43,7 @@ const PROJECTS = [
     title: 'RoBERTa Sentiment Pipeline',
     description:
       'End-to-end RoBERTa ensemble pipeline for social media text: collection, preprocessing, training, and evaluation.',
-    image: 'image/roberta_sentiment_pipeline.png',
+    image: 'image/roberta_structure.png',
     repo: 'llm-roberta-based-sentiment-classification-with-ensemble-approach',
     tags: ['NLP', 'RoBERTa', 'Ensemble', 'Python'],
     links: {
@@ -57,7 +57,7 @@ const PROJECTS = [
     title: 'TPC (Two-Phase Classification)',
     description:
       'A Novel Classification Method for Imbalanced Data Using Two-Phase Cost-Sensitive SVM and Genetic Algorithm',
-    image: 'image/tpc_classification.png',
+    image: 'image/TPC_flow_chart.png',
     repo: 'classification-method-for-imbalanced-data-using-two-phase-cost-sensitive-svm-and-genetic-algorithm',
     tags: ['NLP', 'Imbalanced Dataset', 'Genetic Algorithm', 'Python'],
     links: {
@@ -87,6 +87,10 @@ const GITHUB_USER = 'wenyenhsu';
 
 function projectImageUrl(project) {
   if (project.image) return project.image;
+  return githubOgImageUrl(project);
+}
+
+function githubOgImageUrl(project) {
   return `https://opengraph.githubassets.com/1/${GITHUB_USER}/${project.repo}`;
 }
 
@@ -138,6 +142,7 @@ function renderProjects() {
               alt="${project.title} preview"
               class="project-card-image"
               loading="lazy"
+              onerror="this.onerror=null;this.src='${githubOgImageUrl(project)}'"
             />
           </a>
           <div class="project-card-body">
