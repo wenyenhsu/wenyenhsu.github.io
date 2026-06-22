@@ -1,0 +1,51 @@
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+
+# Mac
+.DS_Store
+
+# Database
+db.sqlite3
+
+# Docker Volumes
+postgres_data/
+pgdata/
+
+# Runtime Data
+data/*
+!data/esco/
+!data/esco/**
+
+# Generated Data
+data/embeddings/
+data/cache/
+data/raw/
+data/crawls/
+
+# User Uploads
+media/
+data/resumes/
+
+# Ollama
+models/
+*.gguf
+
+# Logs
+*.log
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Ruff
+.ruff_cache/
