@@ -309,6 +309,35 @@
       font-weight: 600;              
       color: #E67E22;                
     }
+
+    .ai-project-item {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      background: #f8f9fa;
+      border-radius: 0.25rem;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .ai-project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-project-title {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .ai-project-description {
+      font-size: 0.88rem;
+      color: var(--secondary-color);
+      margin-bottom: 0;
+    }
+
+    [data-bs-theme="dark"] .ai-project-item {
+      background: #495057;
+    }
     
      @media (max-width: 768px) {
           .banner {
@@ -652,23 +681,47 @@
             </div>
             <div class="project-stat-item mt-3">
               <span class="stat-number">30+</span>
-              <span class="stat-label">VMware projects</span>
+              <span class="stat-label">Virtualization Projects</span>
             </div>
             <div class="project-stat-item">
               <span class="stat-number">20+</span>
-              <span class="stat-label">Ignition optimizations</span>
+              <span class="stat-label">Factory Automation Optimizations</span>
             </div>
             <div class="project-stat-item">
               <span class="stat-number">10+</span>
-              <span class="stat-label">Large NAS clusters build-up</span>
+              <span class="stat-label">Large NAS Clusters Deployments</span>
             </div>
             <div class="project-stat-item">
               <span class="stat-number">10+</span>
-              <span class="stat-label">Automation tools</span>
+              <span class="stat-label">Automation Solutions</span>
             </div>
             <div class="project-stat-item">
               <span class="stat-number">10+</span>
-              <span class="stat-label"> HighByte configuration projects</span>
+              <span class="stat-label"> Industrial Integration Projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-cpu-fill me-2"></i>AI & Data Science Projects</h5>
+          <div class="ai-projects-compact">
+            <div class="ai-project-item">
+              <div class="ai-project-title">Automatic Knowledge Base</div>
+              <p class="ai-project-description">LLM-powered knowledge graph with semantic retrieval and persistent memory.</p>
+            </div>
+            <div class="ai-project-item">
+              <div class="ai-project-title">Job Intelligence Platform</div>
+              <p class="ai-project-description">Django-based career intelligence platform using LLMs, embeddings, and automated job analysis.</p>
+            </div>
+            <div class="ai-project-item">
+              <div class="ai-project-title">Social Sentiment Pipeline</div>
+              <p class="ai-project-description">Ensemble NLP sentiment classification using RoBERTa and traditional ML models.</p>
+            </div>
+            <div class="ai-project-item">
+              <div class="ai-project-title">DeFungi Classification</div>
+              <p class="ai-project-description">Deep learning image classification using TensorFlow and Keras.</p>
             </div>
           </div>
         </div>
