@@ -9,9 +9,11 @@
  *   tags        — tech stack pills
  *   links       — app / github / blog URLs (omit or set null to hide)
  *   featured    — only featured: true projects are shown (set false to hide without deleting)
+ *   slug        — anchor id for in-page links (used as #project-{slug})
  */
 const PROJECTS = [
   {
+    slug: 'jaegeros',
     title: 'JägerOS',
     description:
       'A Django-based career intelligence platform for job tracking, skill extraction with Ollama, market demand analysis, and resume matching.',
@@ -26,6 +28,7 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: 'akb',
     title: 'AKB Daily Intelligence',
     description:
       'A self-evolving knowledge graph that turns raw information into structured, reusable intelligence via LLM reasoning and embedding-based memory.',
@@ -40,6 +43,7 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: 'roberta-sentiment',
     title: 'RoBERTa Sentiment Pipeline',
     description:
       'End-to-end RoBERTa ensemble pipeline for social media text: collection, preprocessing, training, and evaluation.',
@@ -54,6 +58,7 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: 'tpc',
     title: 'TPC (Two-Phase Classification)',
     description:
       'A Novel Classification Method for Imbalanced Data Using Two-Phase Cost-Sensitive SVM and Genetic Algorithm',
@@ -135,7 +140,7 @@ function renderProjects() {
       }
 
       return `
-        <article class="project-card">
+        <article class="project-card" id="project-${project.slug}">
           <a href="${primaryUrl}" target="_blank" rel="noopener noreferrer" class="project-card-image-link">
             <img
               src="${projectImageUrl(project)}"

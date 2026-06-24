@@ -22,6 +22,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       transition: all 0.3s ease;
+      scroll-behavior: smooth;
     }
 
     .banner {
@@ -540,7 +541,9 @@
       background: #f8f9fa;
       border-radius: 0.25rem;
       border-left: 4px solid var(--primary-color);
-      transition: background-color 0.2s ease;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
     .ai-project-item:last-child {
@@ -549,6 +552,11 @@
 
     .ai-project-item:hover {
       background: #eef4ff;
+      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
+    }
+
+    .ai-project-item:hover .ai-project-title {
+      color: var(--primary-color);
     }
 
     .ai-project-title {
@@ -758,6 +766,7 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      scroll-margin-top: 7rem;
     }
 
     .project-card:hover {
@@ -1048,22 +1057,22 @@
           </div>
           <p class="highlights-section-intro">Hands-on builds spanning LLM applications, NLP pipelines, and deep learning systems.</p>
           <div class="highlights-ai-grid">
-            <div class="ai-project-item">
+            <a href="#project-akb" class="ai-project-item">
               <div class="ai-project-title">Automatic Knowledge Base</div>
               <p class="ai-project-description">LLM-powered knowledge graph with semantic retrieval and persistent memory.</p>
-            </div>
-            <div class="ai-project-item">
+            </a>
+            <a href="#project-jaegeros" class="ai-project-item">
               <div class="ai-project-title">Job Intelligence Platform</div>
               <p class="ai-project-description">Django-based career intelligence platform using LLMs, embeddings, and automated job analysis.</p>
-            </div>
-            <div class="ai-project-item">
+            </a>
+            <a href="#project-roberta-sentiment" class="ai-project-item">
               <div class="ai-project-title">Social Sentiment Pipeline</div>
               <p class="ai-project-description">Ensemble NLP sentiment classification using RoBERTa and traditional ML models.</p>
-            </div>
-            <div class="ai-project-item">
+            </a>
+            <a href="#project-tpc" class="ai-project-item">
               <div class="ai-project-title">TPC (Two-Phase Classification)</div>
               <p class="ai-project-description">A novel classification method for imbalanced data using two-phase cost-sensitive SVM and genetic algorithm.</p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
