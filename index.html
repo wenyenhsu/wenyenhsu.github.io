@@ -158,6 +158,52 @@
       background: var(--primary-color);
       color: white;
     }
+
+    .hero-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .hero-keyword {
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2rem;
+      border: 1px solid transparent;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-keyword--blue {
+      background: #e8f1fb;
+      color: #1e5aa8;
+      border-color: #c8daf4;
+    }
+
+    .hero-keyword--violet {
+      background: #f1ebfa;
+      color: #6b4c9a;
+      border-color: #ddd0f0;
+    }
+
+    .hero-keyword--teal {
+      background: #e8f5f0;
+      color: #1a7a5c;
+      border-color: #bfe5d4;
+    }
+
+    .hero-keyword--amber {
+      background: #fdf6e8;
+      color: #9a6700;
+      border-color: #f0ddb8;
+    }
+
+    .hero-keyword--sage {
+      background: #eaf2ed;
+      color: #2f6b4f;
+      border-color: #c5ddd0;
+    }
     
     .project-stats {
       display: grid;
@@ -268,11 +314,17 @@
       bottom: 82px;
       right: 16px;
       z-index: 1000;
-      width: min(252px, calc(100vw - 32px));
+      width: min(268px, calc(100vw - 32px));
       display: none;
       flex-direction: column;
       align-items: stretch;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid #e3e8ef;
+      border-radius: 1rem;
+      padding: 0.9rem 0.8rem 0.8rem;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       pointer-events: none;
       opacity: 0;
       transform: translateY(12px);
@@ -290,9 +342,10 @@
       font-weight: 700;
       font-size: 0.95rem;
       text-align: right;
-      margin-bottom: 0.5rem;
-      color: inherit;
-      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid #e9ecef;
+      color: #212529;
     }
 
     .mobile-nav-scroll-btn {
@@ -300,18 +353,24 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 28px;
+      height: 30px;
       border: none;
-      background: transparent;
+      border-radius: 0.5rem;
+      background: #f1f5f9;
       color: var(--primary-color);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       padding: 0;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+    }
+
+    .mobile-nav-scroll-btn:not(:disabled):hover {
+      background: #e8f1ff;
     }
 
     .mobile-nav-scroll-btn:disabled {
-      opacity: 0.25;
+      opacity: 0.35;
       cursor: default;
+      background: #f8f9fa;
     }
 
     .mobile-nav-viewport {
@@ -321,6 +380,7 @@
       scroll-snap-type: y mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      margin: 0.35rem 0;
     }
 
     .mobile-nav-viewport::-webkit-scrollbar {
@@ -342,13 +402,12 @@
       width: 100%;
       padding: 0.45rem 0.65rem;
       margin-bottom: 0.15rem;
-      border-radius: 0.35rem;
+      border-radius: 0.5rem;
       font-weight: 500;
-      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
     }
 
     .mobile-nav-links .nav-link.active {
-      background-color: rgba(248, 249, 250, 0.92);
+      background-color: #eef4ff;
     }
 
     .mobile-nav-links .btn {
@@ -378,16 +437,32 @@
       box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
     }
 
-    [data-bs-theme="dark"] .mobile-nav-header {
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    [data-bs-theme="dark"] .mobile-nav-panel {
+      background: rgba(45, 48, 53, 0.97);
+      border-color: #495057;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.42);
     }
 
-    [data-bs-theme="dark"] .mobile-nav-links .nav-link {
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    [data-bs-theme="dark"] .mobile-nav-header {
+      color: #f1f3f5;
+      border-bottom-color: #495057;
+    }
+
+    [data-bs-theme="dark"] .mobile-nav-scroll-btn {
+      background: #3a3f44;
+      color: #6ea8fe;
+    }
+
+    [data-bs-theme="dark"] .mobile-nav-scroll-btn:not(:disabled):hover {
+      background: #454b52;
+    }
+
+    [data-bs-theme="dark"] .mobile-nav-scroll-btn:disabled {
+      background: #343a40;
     }
 
     [data-bs-theme="dark"] .mobile-nav-links .nav-link.active {
-      background-color: rgba(73, 80, 87, 0.92);
+      background-color: #3d4f63;
     }
 
     @media (min-width: 769px) {
@@ -638,6 +713,36 @@
           color: #343a40;
         }
 
+        [data-bs-theme="dark"] .hero-keyword--blue {
+          background: rgba(96, 165, 250, 0.14);
+          color: #93c5fd;
+          border-color: rgba(96, 165, 250, 0.28);
+        }
+
+        [data-bs-theme="dark"] .hero-keyword--violet {
+          background: rgba(167, 139, 250, 0.14);
+          color: #c4b5fd;
+          border-color: rgba(167, 139, 250, 0.28);
+        }
+
+        [data-bs-theme="dark"] .hero-keyword--teal {
+          background: rgba(52, 211, 153, 0.12);
+          color: #6ee7b7;
+          border-color: rgba(52, 211, 153, 0.25);
+        }
+
+        [data-bs-theme="dark"] .hero-keyword--amber {
+          background: rgba(251, 191, 36, 0.12);
+          color: #fcd34d;
+          border-color: rgba(251, 191, 36, 0.25);
+        }
+
+        [data-bs-theme="dark"] .hero-keyword--sage {
+          background: rgba(110, 231, 183, 0.1);
+          color: #86efac;
+          border-color: rgba(110, 231, 183, 0.22);
+        }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -786,12 +891,12 @@
             <img src="image/self_photo.jpg" alt="Hank Hsu" class="avatar mb-3" />
             <h1 class="fw-bold display-5">Wen-Yen (Hank) Hsu</h1>
             <p class="lead fs-4">Transforming valuable data into intelligent and trustworthy AI solutions.</p>
-            <div class="mt-2">
-              <span class="badge bg-info text-dark me-2">Data Engineering</span>
-              <span class="badge me-2" style="background-color:#d63384;">LLM Applications</span>
-              <span class="badge bg-success me-2">Trustworthy AI</span>
-              <span class="badge bg-warning text-dark">Project Leadership</span>
-              <span class="badge bg-success me-2">Semiconductor Systems</span>
+            <div class="hero-keywords mt-2">
+              <span class="hero-keyword hero-keyword--blue">Data Engineering</span>
+              <span class="hero-keyword hero-keyword--violet">LLM Applications</span>
+              <span class="hero-keyword hero-keyword--teal">Trustworthy AI</span>
+              <span class="hero-keyword hero-keyword--amber">Project Leadership</span>
+              <span class="hero-keyword hero-keyword--sage">Semiconductor Systems</span>
             </div>
           </div>
         </header>
