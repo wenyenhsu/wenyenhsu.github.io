@@ -311,32 +311,83 @@
     }
 
     .ai-project-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
       padding: 0.75rem;
       margin-bottom: 0.5rem;
       background: #f8f9fa;
       border-radius: 0.25rem;
       border-left: 4px solid var(--primary-color);
+      transition: background-color 0.2s ease;
     }
 
     .ai-project-item:last-child {
       margin-bottom: 0;
     }
 
+    .ai-project-item:hover {
+      background: #eef4ff;
+    }
+
     .ai-project-title {
       font-weight: 700;
-      color: var(--primary-color);
-      margin-bottom: 0.25rem;
-      font-size: 0.95rem;
+      color: #212529;
+      margin-bottom: 0;
+      font-size: 0.92rem;
+      flex: 0 0 38%;
+      line-height: 1.4;
     }
 
     .ai-project-description {
       font-size: 0.88rem;
       color: var(--secondary-color);
       margin-bottom: 0;
+      flex: 1;
+      line-height: 1.45;
     }
 
+    .highlights-ai-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .highlights-section-intro {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    [data-bs-theme="dark"] .skills-compact .skill-group {
+      border-bottom-color: #495057;
+    }
+
+    [data-bs-theme="dark"] .project-stat-item,
     [data-bs-theme="dark"] .ai-project-item {
-      background: #495057;
+      background: #3a3f44;
+    }
+
+    [data-bs-theme="dark"] .ai-project-item:hover {
+      background: #454b52;
+    }
+
+    [data-bs-theme="dark"] .ai-project-title {
+      color: #f1f3f5;
+    }
+
+    [data-bs-theme="dark"] .ai-project-description,
+    [data-bs-theme="dark"] .project-stats-compact .stat-label {
+      color: #ced4da;
+    }
+
+    [data-bs-theme="dark"] .project-stats-compact .stat-number {
+      color: #6ea8fe;
+    }
+
+    [data-bs-theme="dark"] .highlights-section-intro {
+      color: #ced4da;
     }
     
      @media (max-width: 768px) {
@@ -371,6 +422,20 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 0.25rem;
+          }
+
+          .highlights-ai-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .ai-project-item {
+            flex-direction: column;
+            gap: 0.35rem;
+          }
+
+          .ai-project-title {
+            flex: none;
+            width: 100%;
           }
         }
         
@@ -668,10 +733,9 @@
         </div>
       </div>
     </div>
-          
-      <!-- Project Experience + AI Projects -->
-    <div class="col-lg-6 d-flex flex-column gap-4">
-      <div class="card">
+
+    <div class="col-lg-6">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-graph-up me-2"></i>Project Experience</h5>
           <div class="project-stats-compact">
@@ -702,19 +766,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <div class="row g-4 mt-1">
+    <div class="col-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-cpu-fill me-2"></i>AI & Data Science Projects</h5>
-          <div class="ai-projects-compact">
+          <p class="highlights-section-intro">Hands-on builds spanning LLM applications, NLP pipelines, and deep learning systems.</p>
+          <div class="highlights-ai-grid">
             <div class="ai-project-item">
               <div class="ai-project-title">Automatic Knowledge Base</div>
+              <p class="ai-project-description">LLM-powered knowledge graph with semantic retrieval and persistent memory.</p>
             </div>
             <div class="ai-project-item">
               <div class="ai-project-title">Job Intelligence Platform</div>
+              <p class="ai-project-description">Django-based career intelligence platform using LLMs, embeddings, and automated job analysis.</p>
             </div>
             <div class="ai-project-item">
               <div class="ai-project-title">Social Sentiment Pipeline</div>
+              <p class="ai-project-description">Ensemble NLP sentiment classification using RoBERTa and traditional ML models.</p>
+            </div>
+            <div class="ai-project-item">
+              <div class="ai-project-title">DeFungi Classification</div>
+              <p class="ai-project-description">Deep learning image classification using TensorFlow and Keras.</p>
             </div>
           </div>
         </div>
