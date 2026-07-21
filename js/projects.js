@@ -12,6 +12,21 @@
  *   slug        — anchor id for in-page links (used as #project-{slug})
  */
 const PROJECTS = [
+    {
+    slug: 'Cast-it',
+    title: 'Cast-it',
+    description:
+      'Delivers personalized recommendations for LLM-generated podcasts using RAG-based knowledge retrieval.',
+    image: 'image/cast-it-system-architecture.png',
+    repo: 'cast-it-podcast-builder',
+    tags: ['Recommendation','LLM', 'RAG', 'Django', 'Docker', 'PostgreSQL','Ollama'],
+    links: {
+      app: null,
+      github: 'https://github.com/wenyenhsu/cast-it-podcast-builder',
+      blog: null,
+    },
+    featured: true,
+  },
   {
     slug: 'jaegeros',
     title: 'JägerOS',
