@@ -11,6 +11,12 @@ ENV/
 # Mac
 .DS_Store
 
+# Local backups (do not upload)
+20260721_backup.zip
+20260721_backup/
+*_backup.zip
+*_backup/
+
 # Database
 db.sqlite3
 

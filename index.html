@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,326 +10,242 @@
       var theme = (override === 'light' || override === 'dark')
         ? override
         : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-bs-theme', theme);
+      document.documentElement.classList.toggle('dark', theme === 'dark');
     })();
   </script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.06)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style type="text/tailwindcss">
+    @layer components {
+      .ui-card {
+        @apply rounded-xl border border-zinc-200 bg-white shadow-sm transition dark:border-zinc-800 dark:bg-zinc-900;
+      }
+      .ui-card-body {
+        @apply p-5 sm:p-6;
+      }
+      .section-title {
+        @apply mb-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
+      }
+      .nav-link {
+        @apply block rounded-md px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50;
+      }
+      .nav-link.active {
+        @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50;
+      }
+      .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200;
+      }
+      .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 rounded-md border border-zinc-200 bg-transparent px-4 py-2 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800;
+      }
+      .btn-outline-sm {
+        @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-zinc-200 bg-transparent px-3 py-1.5 text-xs font-medium text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800;
+      }
+      .badge {
+        @apply inline-flex shrink-0 items-center rounded-md bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white dark:bg-zinc-100 dark:text-zinc-900;
+      }
+      .badge-muted {
+        @apply inline-flex shrink-0 items-center rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200;
+      }
+      .job-title {
+        @apply text-lg font-bold text-zinc-900 dark:text-zinc-50;
+      }
+      .tools-line {
+        @apply my-3 rounded-md border-l-4 border-zinc-900 bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-800 dark:border-zinc-100 dark:bg-zinc-800/60 dark:text-zinc-100;
+      }
+      .muted {
+        @apply text-zinc-500 dark:text-zinc-400;
+      }
+      .hero-keyword {
+        @apply rounded-full border px-3 py-1 text-sm font-medium tracking-wide;
+      }
+      .hero-keyword--blue {
+        @apply border-sky-200 bg-sky-50 text-sky-800 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300;
+      }
+      .hero-keyword--violet {
+        @apply border-violet-200 bg-violet-50 text-violet-800 dark:border-violet-500/30 dark:bg-violet-500/10 dark:text-violet-300;
+      }
+      .hero-keyword--teal {
+        @apply border-teal-200 bg-teal-50 text-teal-800 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300;
+      }
+      .hero-keyword--amber {
+        @apply border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300;
+      }
+      .hero-keyword--slate {
+        @apply border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-500/30 dark:bg-slate-500/10 dark:text-slate-300;
+      }
+    }
+  </style>
   <style>
-    :root {
-      --primary-color: #0d6efd;
-      --secondary-color: #6c757d;
-      --accent-color: #20c997;
-      --light-bg: #f8f9fa;
-      --dark-bg: #212529;
-      color-scheme: light dark;
-    }
-
-    [data-bs-theme="light"] {
-      color-scheme: light;
-    }
-
-    [data-bs-theme="dark"] {
-      color-scheme: dark;
-    }
-    
-    body {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      transition: all 0.3s ease;
-      scroll-behavior: smooth;
-    }
+    :root { color-scheme: light dark; }
+    html.dark { color-scheme: dark; }
 
     .banner {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-                        url('image/trojan.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35)), url('image/trojan.jpg');
       background-size: cover;
       background-position: center, center 25%;
       background-repeat: no-repeat;
       height: 250px;
-      border-radius: 0;
       margin-bottom: 100px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
-    
-    .banner-content {
-      text-align: center;
-      z-index: 2;
+    @media (max-width: 768px) {
+      .banner { height: 180px; margin-bottom: 60px; }
+      header .avatar { margin-top: -60px; width: 120px; height: 120px; }
     }
-    
     header .avatar {
-      position: relative;
-      z-index: 10;
       margin-top: -100px;
-      border: 5px solid #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
-      background-color: #fff;
-      transition: transform 0.3s ease;
-    }
-    
-    header .avatar:hover {
-      transform: scale(1.05);
-    }
-    
-    .avatar {
       width: 150px;
       height: 150px;
-      border-radius: 50%;
+      border-radius: 9999px;
       object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: #fff;
+      transition: transform 0.3s ease;
     }
-    
-    .section-title {
-      border-bottom: 3px solid var(--primary-color);
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    
-    #experience .job-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-    }
-    
-    #experience .tools-line {
-      margin: 0.5rem 0 1rem 0;
-      padding: 0.5rem 0.75rem;
-      background-color: var(--light-bg);
-      border-left: 4px solid var(--primary-color);
-      border-radius: 0.25rem;
-      font-weight: 600;
-    }
-    
-    #sidebar-nav {
-      position: sticky;
-      top: 220px;
-    }
-    
-    .nav-link {
-      transition: all 0.2s ease;
-      border-radius: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    .nav-link:hover, .nav-link.active {
-      background-color: var(--light-bg);
-      color: var(--primary-color) !important;
-    }
-    
-    .skill-category {
-      margin-bottom: 2rem;
-    }
-    
+    html.dark header .avatar { border-color: #18181b; }
+    header .avatar:hover { transform: scale(1.05); }
 
-    .skills-grid {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
-    
-    .skill-item {
-      background: var(--light-bg);
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      border-left: 4px solid var(--primary-color);
-      transition: all 0.3s ease;
-    }
-    
-    .skill-item:hover {
-      transform: translateX(5px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .skill-category-title {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
+    .project-card {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-    
-    .skill-tag {
-      background: white;
-      border: 1px solid var(--primary-color);
-      color: var(--primary-color);
-      padding: 0.25rem 0.5rem;
-      border-radius: 1rem;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-    }
-    
-    .skill-tag:hover {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .hero-keywords {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .hero-keyword {
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 0.35rem 0.85rem;
-      border-radius: 2rem;
-      border: 1px solid transparent;
-      letter-spacing: 0.01em;
-    }
-
-    .hero-keyword--blue {
-      background: #e8f1fb;
-      color: #1e5aa8;
-      border-color: #c8daf4;
-    }
-
-    .hero-keyword--violet {
-      background: #f1ebfa;
-      color: #6b4c9a;
-      border-color: #ddd0f0;
-    }
-
-    .hero-keyword--teal {
-      background: #e6f7f5;
-      color: #0d7a6e;
-      border-color: #b3e5df;
-    }
-
-    .hero-keyword--amber {
-      background: #fdf6e8;
-      color: #9a6700;
-      border-color: #f0ddb8;
-    }
-
-    .hero-keyword--slate {
-      background: #eef1f6;
-      color: #4a5d73;
-      border-color: #c8d0dc;
-    }
-    
-    .project-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .stat-card {
-      background: linear-gradient(135deg, var(--primary-color), #0a58ca);
-      color: white;
-      padding: 1.5rem;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
       border-radius: 0.75rem;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-    }
-    
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-    
-    .project-details {
-      background: var(--light-bg);
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      border-left: 5px solid var(--accent-color);
-    }
-    
-    .project-highlight {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-    
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background-color: var(--primary-color);
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -1.5rem;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--primary-color);
-      border: 2px solid white;
-    }
-    
-    .card {
+      border: 1px solid #e4e4e7;
+      background: #fff;
+      scroll-margin-top: 7rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
     }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    html.dark .project-card {
+      border-color: #27272a;
+      background: #18181b;
     }
-    
-    .badge-custom {
-      background-color: var(--accent-color);
-      color: white;
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
     }
-    
+    .project-card-image-link { display: block; overflow: hidden; }
+    .project-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .project-card-image { transform: scale(1.03); }
+    .project-card-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 1.25rem;
+    }
+    .project-card-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: inherit;
+      text-decoration: none;
+    }
+    .project-card-title:hover { color: #18181b; }
+    html.dark .project-card-title:hover { color: #fafafa; }
+    .project-card-external { font-size: 0.85rem; opacity: 0.6; }
+    .project-card-description {
+      margin: 0.75rem 0 1rem;
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: #71717a;
+    }
+    html.dark .project-card-description { color: #a1a1aa; }
+    .project-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .project-tag {
+      border-radius: 0.25rem;
+      background: #f4f4f5;
+      color: #3f3f46;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.55rem;
+    }
+    html.dark .project-tag {
+      background: #27272a;
+      color: #e4e4e7;
+    }
+    .project-card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: auto;
+      border-top: 1px solid #e4e4e7;
+      padding-top: 0.85rem;
+    }
+    html.dark .project-card-links { border-top-color: #27272a; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #71717a;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .project-link:hover { color: #18181b; }
+    html.dark .project-link:hover { color: #fafafa; }
+
     .floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 1001;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
       display: none;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 50px;
+      height: 50px;
       border: none;
+      border-radius: 9999px;
+      background: #18181b;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
     }
+    html.dark .floating-btn {
+      background: #fafafa;
+      color: #18181b;
+    }
+    .floating-btn.is-menu-open { background: #71717a; color: #fff; }
 
     .mobile-nav-panel {
       position: fixed;
@@ -339,37 +255,40 @@
       width: min(268px, calc(100vw - 32px));
       display: none;
       flex-direction: column;
-      align-items: stretch;
-      background: rgba(255, 255, 255, 0.97);
-      border: 1px solid #e3e8ef;
+      background: rgba(255,255,255,0.97);
+      border: 1px solid #e4e4e7;
       border-radius: 1rem;
       padding: 0.9rem 0.8rem 0.8rem;
       box-shadow: 0 14px 36px rgba(15, 23, 42, 0.14);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       pointer-events: none;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
-
+    html.dark .mobile-nav-panel {
+      background: rgba(24,24,27,0.97);
+      border-color: #3f3f46;
+    }
     .mobile-nav-panel.is-open {
       display: flex;
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
     }
-
     .mobile-nav-header {
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid #e4e4e7;
       font-weight: 700;
       font-size: 0.95rem;
       text-align: right;
-      margin-bottom: 0.45rem;
-      padding-bottom: 0.45rem;
-      border-bottom: 1px solid #e9ecef;
-      color: #212529;
+      color: #18181b;
     }
-
+    html.dark .mobile-nav-header {
+      border-bottom-color: #3f3f46;
+      color: #fafafa;
+    }
     .mobile-nav-scroll-btn {
       display: flex;
       align-items: center;
@@ -378,70 +297,42 @@
       height: 30px;
       border: none;
       border-radius: 0.5rem;
-      background: #f1f5f9;
-      color: var(--primary-color);
+      background: #f4f4f5;
+      color: #18181b;
       font-size: 1.05rem;
       padding: 0;
-      transition: opacity 0.2s ease, background-color 0.2s ease;
     }
-
-    .mobile-nav-scroll-btn:not(:disabled):hover {
-      background: #e8f1ff;
+    html.dark .mobile-nav-scroll-btn {
+      background: #27272a;
+      color: #e4e4e7;
     }
-
-    .mobile-nav-scroll-btn:disabled {
-      opacity: 0.35;
-      cursor: default;
-      background: #f8f9fa;
-    }
-
+    .mobile-nav-scroll-btn:disabled { opacity: 0.35; cursor: default; }
     .mobile-nav-viewport {
       max-height: calc(3 * 2.85rem);
       overflow-y: auto;
       overflow-x: hidden;
       scroll-snap-type: y mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
       margin: 0.35rem 0;
+      scrollbar-width: none;
     }
-
-    .mobile-nav-viewport::-webkit-scrollbar {
-      display: none;
-    }
-
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
+    .mobile-nav-viewport::-webkit-scrollbar { display: none; }
+    .mobile-nav-links { display: flex; flex-direction: column; align-items: flex-end; }
     .mobile-nav-links .nav-link {
       scroll-snap-align: start;
       min-height: 2.85rem;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      width: 100%;
-      padding: 0.45rem 0.65rem;
       margin-bottom: 0.15rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
     }
-
-    .mobile-nav-links .nav-link.active {
-      background-color: #eef4ff;
-    }
-
-    .mobile-nav-links .btn {
+    .mobile-nav-links .btn-primary,
+    .mobile-nav-links .btn-outline {
       scroll-snap-align: start;
       min-height: 2.85rem;
       width: 100%;
       margin-bottom: 0.15rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-
     .mobile-nav-top-btn {
       display: flex;
       align-items: center;
@@ -452,476 +343,45 @@
       padding: 0.55rem 0.75rem;
       border: none;
       border-radius: 0.5rem;
-      background: var(--primary-color);
+      background: #18181b;
       color: #fff;
       font-size: 0.85rem;
       font-weight: 600;
-      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
     }
-
-    [data-bs-theme="dark"] .mobile-nav-panel {
-      background: rgba(45, 48, 53, 0.97);
-      border-color: #495057;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.42);
+    html.dark .mobile-nav-top-btn {
+      background: #fafafa;
+      color: #18181b;
     }
-
-    [data-bs-theme="dark"] .mobile-nav-header {
-      color: #f1f3f5;
-      border-bottom-color: #495057;
-    }
-
-    [data-bs-theme="dark"] .mobile-nav-scroll-btn {
-      background: #3a3f44;
-      color: #6ea8fe;
-    }
-
-    [data-bs-theme="dark"] .mobile-nav-scroll-btn:not(:disabled):hover {
-      background: #454b52;
-    }
-
-    [data-bs-theme="dark"] .mobile-nav-scroll-btn:disabled {
-      background: #343a40;
-    }
-
-    [data-bs-theme="dark"] .mobile-nav-links .nav-link.active {
-      background-color: #3d4f63;
-    }
-
     @media (min-width: 769px) {
-      .mobile-nav-panel {
-        display: none !important;
-      }
+      .mobile-nav-panel { display: none !important; }
     }
-
     @media (max-width: 768px) {
-      .floating-btn {
-        display: flex !important;
-      }
-
-      .floating-btn.is-menu-open {
-        background-color: #6c757d;
-      }
+      .floating-btn { display: flex !important; }
+      #sidebar-nav { display: none; }
     }
 
-    ul {
-      padding-left: 1rem; 
-    }
-    
-    .skills-compact .skill-group {
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #e9ecef;
-    }
-    
-    .skills-compact .skill-group:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-    
-    .project-stats-compact .project-stat-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      background: #f8f9fa;
-      border-radius: 0.25rem;
-    }
-    
-    .project-stats-compact .stat-number {
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: 1.1rem;
-    }
-    
-    .project-stats-compact .stat-label {
-      font-size: 0.9rem;
-      color: var(--secondary-color);
-    }
-    
-    .project-highlight-compact {
-      background: #332701;
-      border-left-color: #ffc107;
-      border-left: 4px solid #ffc107;
-      padding: 0.75rem;
-      border-radius: 0.25rem;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;              
-      color: #E67E22;                
-    }
-
-    .ai-project-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      height: 100%;
-      min-height: 7.25rem;
-      padding: 0.75rem;
-      background: #f8f9fa;
-      border-radius: 0.25rem;
-      border-left: 4px solid var(--primary-color);
-      transition: background-color 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .ai-project-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .ai-project-item:hover {
-      background: #eef4ff;
-      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
-    }
-
-    .ai-project-item:hover .ai-project-title {
-      color: var(--primary-color);
-    }
-
-    .ai-project-title {
-      font-weight: 700;
-      color: #212529;
-      margin-bottom: 0;
-      font-size: 0.92rem;
-      flex: 0 0 38%;
-      line-height: 1.4;
-    }
-
-    .ai-project-description {
-      font-size: 0.88rem;
-      color: var(--secondary-color);
-      margin-bottom: 0;
-      flex: 1;
-      line-height: 1.45;
-    }
-
-    .highlights-ai-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 1fr;
-      gap: 0.75rem;
-      align-items: stretch;
-    }
-
-    .highlights-ai-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-
-    .highlights-more-btn {
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .highlights-section-intro {
-      font-size: 0.9rem;
-      color: var(--secondary-color);
-      margin-bottom: 1rem;
-    }
-
-    [data-bs-theme="dark"] .skills-compact .skill-group {
-      border-bottom-color: #495057;
-    }
-
-    [data-bs-theme="dark"] .project-stat-item,
-    [data-bs-theme="dark"] .ai-project-item {
-      background: #3a3f44;
-    }
-
-    [data-bs-theme="dark"] .ai-project-item:hover {
-      background: #454b52;
-    }
-
-    [data-bs-theme="dark"] .ai-project-title {
-      color: #f1f3f5;
-    }
-
-    [data-bs-theme="dark"] .ai-project-description,
-    [data-bs-theme="dark"] .project-stats-compact .stat-label {
-      color: #ced4da;
-    }
-
-    [data-bs-theme="dark"] .project-stats-compact .stat-number {
-      color: #6ea8fe;
-    }
-
-    [data-bs-theme="dark"] .highlights-section-intro {
-      color: #ced4da;
-    }
-    
-     @media (max-width: 768px) {
-          .banner {
-            height: 180px;
-            margin-bottom: 60px;
-          }
-          
-          header .avatar {
-            margin-top: -60px;
-            width: 120px;
-            height: 120px;
-          }
-          
-          #sidebar-nav {
-            display: none;
-          }
-          
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .project-stats {
-            grid-template-columns: 1fr;
-          }
-    
-          .skills-compact .skill-group {
-            font-size: 0.9rem;
-          }
-      
-          .project-stats-compact .project-stat-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
-          }
-
-          .highlights-ai-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .ai-project-item {
-            flex-direction: column;
-            gap: 0.35rem;
-            min-height: auto;
-          }
-
-          .ai-project-title {
-            flex: none;
-            width: 100%;
-          }
-        }
-        
-        [data-bs-theme="dark"] {
-          --light-bg: #343a40;
-          --primary-color: #0d6efd;
-          --secondary-color: #adb5bd; 
-        }
-    
-        [data-bs-theme="dark"] body {
-          background-color: #212529;
-        }
-        [data-bs-theme="dark"] .text-muted {
-          color: #ced4da !important;
-        }
-        
-        [data-bs-theme="dark"] .card {
-          background-color: #2d3035;
-          color: #e9ecef;
-        }
-        
-        [data-bs-theme="dark"] .tools-line {
-          background-color: #495057;
-        }
-        
-        [data-bs-theme="dark"] .skill-item {
-          background: #495057;
-        }
-        
-        [data-bs-theme="dark"] .skill-tag {
-          background: #343a40;
-          border-color: var(--accent-color);
-          color: var(--accent-color);
-        }
-        
-        [data-bs-theme="dark"] .skill-tag:hover {
-          background: var(--accent-color);
-          color: #343a40;
-        }
-
-        [data-bs-theme="dark"] .hero-keyword--blue {
-          background: rgba(96, 165, 250, 0.14);
-          color: #93c5fd;
-          border-color: rgba(96, 165, 250, 0.28);
-        }
-
-        [data-bs-theme="dark"] .hero-keyword--violet {
-          background: rgba(167, 139, 250, 0.14);
-          color: #c4b5fd;
-          border-color: rgba(167, 139, 250, 0.28);
-        }
-
-        [data-bs-theme="dark"] .hero-keyword--teal {
-          background: rgba(45, 212, 191, 0.14);
-          color: #5eead4;
-          border-color: rgba(45, 212, 191, 0.28);
-        }
-
-        [data-bs-theme="dark"] .hero-keyword--amber {
-          background: rgba(251, 191, 36, 0.12);
-          color: #fcd34d;
-          border-color: rgba(251, 191, 36, 0.25);
-        }
-
-        [data-bs-theme="dark"] .hero-keyword--slate {
-          background: rgba(148, 163, 184, 0.16);
-          color: #cbd5e1;
-          border-color: rgba(148, 163, 184, 0.32);
-        }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border: 1px solid #dee2e6;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      scroll-margin-top: 7rem;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-card-image-link {
-      display: block;
-      overflow: hidden;
-    }
-
-    .project-card-image {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover .project-card-image {
-      transform: scale(1.03);
-    }
-
-    .project-card-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .project-card-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: inherit;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .project-card-title:hover {
-      color: var(--primary-color);
-    }
-
-    .project-card-external {
-      font-size: 0.85rem;
-      opacity: 0.6;
-    }
-
-    .project-card-description {
-      color: var(--secondary-color);
-      font-size: 0.95rem;
-      margin: 0.75rem 0 1rem;
-      flex-grow: 1;
-    }
-
-    .project-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-tag {
-      background: #f1f3f5;
-      color: #495057;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.55rem;
-      border-radius: 0.25rem;
-    }
-
-    .project-card-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      border-top: 1px solid #e9ecef;
-      padding-top: 0.85rem;
-      margin-top: auto;
-    }
-
-    .project-link {
-      color: var(--secondary-color);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: color 0.2s ease;
-    }
-
-    .project-link:hover {
-      color: var(--primary-color);
-    }
-
-    [data-bs-theme="dark"] .project-card {
-      background: #2d3035;
-      border-color: #495057;
-    }
-
-    [data-bs-theme="dark"] .project-tag {
-      background: #495057;
-      color: #e9ecef;
-    }
-
-    [data-bs-theme="dark"] .project-card-links {
-      border-top-color: #495057;
-    }
+    details.edu-item summary::-webkit-details-marker { display: none; }
+    details.edu-item[open] .edu-chevron { transform: rotate(180deg); }
   </style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target="#sidebar-nav" data-bs-offset="100" tabindex="0">
+<body class="bg-zinc-50 font-sans text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50">
   <!-- Banner -->
-  <div class="banner">
-    <div class="banner-content">
-      <h2 class="display-6">IT/OT Engineer | Applied AI & Data Science</h2>
-      <p class="lead">5+ years in semiconductor industry</p>
+  <div class="banner relative flex items-center justify-center text-white">
+    <div class="relative z-10 text-center drop-shadow">
+      <h2 class="text-2xl font-bold sm:text-3xl">IT/OT Engineer | Applied AI &amp; Data Science</h2>
+      <p class="mt-2 text-lg text-white/90">5+ years in semiconductor industry</p>
     </div>
   </div>
 
-  <div class="container py-4">
-    <div class="row">
-      <main class="col-md-9">
-        <header class="text-center mb-5">
-          <div class="d-flex flex-column align-items-center">
-            <img src="image/self_photo.jpg" alt="Hank Hsu" class="avatar mb-3" />
-            <h1 class="fw-bold display-5">Wen-Yen (Hank) Hsu</h1>
-            <p class="lead fs-4">Transforming valuable data into intelligent and trustworthy AI solutions.</p>
-            <div class="hero-keywords mt-2">
+  <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
+      <main class="md:col-span-9">
+        <header class="mb-12 text-center">
+          <div class="flex flex-col items-center">
+            <img src="image/self_photo.jpg" alt="Hank Hsu" class="avatar mb-4" />
+            <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">Wen-Yen (Hank) Hsu</h1>
+            <p class="mt-3 max-w-2xl text-lg text-zinc-600 dark:text-zinc-300 sm:text-xl">Transforming valuable data into intelligent and trustworthy AI solutions.</p>
+            <div class="mt-4 flex flex-wrap justify-center gap-2">
               <span class="hero-keyword hero-keyword--blue">Data Engineering</span>
               <span class="hero-keyword hero-keyword--violet">LLM Applications</span>
               <span class="hero-keyword hero-keyword--teal">Trustworthy AI</span>
@@ -932,288 +392,219 @@
         </header>
 
         <!-- Facts about me -->
-        <section id="facts-about-me" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-person-arms-up me-2"></i>Facts about me</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-briefcase me-2"></i>Professional</h5>
-                  <p class="card-text">IT/OT Engineer with 5 years of experience in semiconductor manufacturing, combining expertise in infrastructure, automation, and data engineering with hands-on experience building LLM-powered applications, RAG systems, and machine learning solutions. Focused on developing trustworthy AI systems that deliver operational insights and real-world business impact.</p>
-                </div>
+        <section id="facts-about-me" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-person-arms-up"></i>Facts about me</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="ui-card">
+              <div class="ui-card-body">
+                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-briefcase"></i>Professional</h5>
+                <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">IT/OT Engineer with 5 years of experience in semiconductor manufacturing, combining expertise in infrastructure, automation, and data engineering with hands-on experience building LLM-powered applications, RAG systems, and machine learning solutions. Focused on developing trustworthy AI systems that deliver operational insights and real-world business impact.</p>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-heart me-2"></i>Personal Interests</h5>
-                  <p class="card-text">Outside of work, I enjoy badminton, outdoor adventures, and analyzing the art of cinema.</p>
-                </div>
+            <div class="ui-card">
+              <div class="ui-card-body">
+                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-heart"></i>Personal Interests</h5>
+                <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">Outside of work, I enjoy badminton, outdoor adventures, and analyzing the art of cinema.</p>
               </div>
             </div>
           </div>
         </section>
 
         <!-- Contact Info -->
-        <section id="contact" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-envelope-plus-fill me-2"></i>Contact Info</h2>
-          <div class="row">
-          <div class="col-md-6">
-              <div class="d-flex align-items-center mb-3">
-                <i class="bi bi-github me-3 fs-4 text-primary"></i>
-                <div>
-                  <h5 class="mb-0">GitHub</h5>
-                  <a href="https://github.com/wenyenhsu" class="text-decoration-none">wenyenhsu</a>
+        <section id="contact" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-envelope-plus-fill"></i>Contact Info</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="flex items-center gap-3">
+              <i class="bi bi-github text-2xl text-zinc-900 dark:text-zinc-100"></i>
+              <div>
+                <h5 class="font-semibold">GitHub</h5>
+                <a href="https://github.com/wenyenhsu" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">wenyenhsu</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bi bi-linkedin text-2xl text-zinc-900 dark:text-zinc-100"></i>
+              <div>
+                <h5 class="font-semibold">LinkedIn</h5>
+                <a href="https://www.linkedin.com/in/wenyenhsu" target="_blank" rel="noopener noreferrer" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">Hank Hsu</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bi bi-file-earmark-person text-2xl text-zinc-900 dark:text-zinc-100"></i>
+              <div>
+                <h5 class="font-semibold">Resume</h5>
+                <a href="https://drive.google.com/file/d/1KCjxzDMm_ckO-GdMb_dFzb9YSg304ETm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">Resume Link</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bi bi-envelope-fill text-2xl text-zinc-900 dark:text-zinc-100"></i>
+              <div>
+                <h5 class="font-semibold">Email</h5>
+                <a href="mailto:godhanko@gmail.com" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">godhanko@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Professional Highlights -->
+        <section id="skills" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-lightbulb-fill"></i>Professional Highlights</h2>
+          <div class="grid items-stretch gap-4 lg:grid-cols-2">
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <h5 class="mb-4 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-tools"></i>Technical Skills</h5>
+                <div class="space-y-3 divide-y divide-zinc-100 dark:divide-zinc-800">
+                  <div class="pb-3 text-sm leading-relaxed"><strong>AI &amp; LLM Engineering :</strong> LLM Fine-Tuning , RAG, Model Evaluation, Prompt Engineering, Agentic AI Development.</div>
+                  <div class="pb-3 pt-3 text-sm leading-relaxed"><strong>Programming &amp; Scripting : </strong> Python, Java, SQL, PowerShell, Bash, JavaScript, Git, Docker, MLOps.</div>
+                  <div class="pb-3 pt-3 text-sm leading-relaxed"><strong>Big Data &amp; Machine Learning :</strong> Hadoop, NLP Fundamentals, TensorFlow, PyTorch, Scikit-Learn, BeautifulSoup, CUDA.</div>
+                  <div class="pb-3 pt-3 text-sm leading-relaxed"><strong>Data Visualization :</strong> Seaborn, Matplotlib, Tableau, PowerBI.</div>
+                  <div class="pb-3 pt-3 text-sm leading-relaxed"><strong>Virtualization &amp; Infrastructure:</strong> VMware ecosystem, System optimization, Performance analysis.</div>
+                  <div class="pt-3 text-sm leading-relaxed"><strong>Operation Hardware Management :</strong> Linux OS based technique, x86 server management, NAS management, Ignition SCADA system management, Tenable OT, HighByte, CyberArk.</div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-center mb-3">
-                <i class="bi bi-linkedin me-3 fs-4 text-primary"></i>
-                <div>
-                  <h5 class="mb-0">LinkedIn</h5>
-                  <a href="https://www.linkedin.com/in/wenyenhsu" target="_blank" class="text-decoration-none" rel="noopener noreferrer">Hank Hsu</a>
+
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <h5 class="mb-4 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-graph-up"></i>Project Experience</h5>
+                <div class="mb-4 rounded-md border-l-4 border-amber-400 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-800 dark:border-amber-500 dark:bg-amber-500/10 dark:text-amber-200">
+                  <i class="bi bi-star-fill text-amber-500"></i>
+                  Primarily focus on Big Data Hadoop solutions, operational efficiency, overseas support, and factory requests.
+                </div>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between rounded-md bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"><span class="text-base font-bold text-zinc-900 dark:text-zinc-50">30+</span><span class="muted text-sm">Virtualization Projects</span></div>
+                  <div class="flex items-center justify-between rounded-md bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"><span class="text-base font-bold text-zinc-900 dark:text-zinc-50">20+</span><span class="muted text-sm">Factory Automation Optimizations</span></div>
+                  <div class="flex items-center justify-between rounded-md bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"><span class="text-base font-bold text-zinc-900 dark:text-zinc-50">10+</span><span class="muted text-sm">Large NAS Clusters Deployments</span></div>
+                  <div class="flex items-center justify-between rounded-md bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"><span class="text-base font-bold text-zinc-900 dark:text-zinc-50">10+</span><span class="muted text-sm">Automation Solutions</span></div>
+                  <div class="flex items-center justify-between rounded-md bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"><span class="text-base font-bold text-zinc-900 dark:text-zinc-50">10+</span><span class="muted text-sm"> Industrial Integration Projects</span></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-          <div class="col-md-6">
-              <div class="d-flex align-items-center mb-3">
-                <i class="bi bi-file-earmark-person me-3 fs-4 text-primary"></i>
-                <div>
-                  <h5 class="mb-0">Resume</h5>
-                  <a href="https://drive.google.com/file/d/1KCjxzDMm_ckO-GdMb_dFzb9YSg304ETm/view?usp=sharing" target="_blank" class="text-decoration-none" rel="noopener noreferrer">Resume Link</a>
+
+          <div class="mt-4">
+            <div class="ui-card">
+              <div class="ui-card-body">
+                <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
+                  <h5 class="flex items-center gap-2 text-lg font-semibold"><i class="bi bi-cpu-fill"></i>AI &amp; Data Science Projects</h5>
+                  <a href="#projects" class="btn-outline-sm whitespace-nowrap">More Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <p class="mb-4 text-sm muted">Hands-on builds spanning LLM applications, NLP pipelines, and deep learning systems.</p>
+                <div class="grid gap-3 sm:grid-cols-2">
+                  <a href="#project-cast-it" class="flex h-full min-h-[7.25rem] flex-col gap-1 rounded-md border-l-4 border-zinc-900 bg-zinc-50 p-3 no-underline transition hover:bg-zinc-100 dark:border-zinc-100 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div class="shrink-0 text-sm font-bold text-zinc-900 dark:text-zinc-50 sm:w-[38%]">AI Podcast Generator</div>
+                    <p class="m-0 flex-1 text-sm leading-snug text-zinc-500 dark:text-zinc-400">Delivers personalized recommendations for LLM-generated podcasts using RAG-based retrieval..</p>
+                  </a>
+                  <a href="#project-akb" class="flex h-full min-h-[7.25rem] flex-col gap-1 rounded-md border-l-4 border-zinc-900 bg-zinc-50 p-3 no-underline transition hover:bg-zinc-100 dark:border-zinc-100 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div class="shrink-0 text-sm font-bold text-zinc-900 dark:text-zinc-50 sm:w-[38%]">Automatic Knowledge Base</div>
+                    <p class="m-0 flex-1 text-sm leading-snug text-zinc-500 dark:text-zinc-400">LLM-powered knowledge graph with semantic retrieval and persistent memory.</p>
+                  </a>
+                  <a href="#project-jaegeros" class="flex h-full min-h-[7.25rem] flex-col gap-1 rounded-md border-l-4 border-zinc-900 bg-zinc-50 p-3 no-underline transition hover:bg-zinc-100 dark:border-zinc-100 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div class="shrink-0 text-sm font-bold text-zinc-900 dark:text-zinc-50 sm:w-[38%]">Job Intelligence Platform</div>
+                    <p class="m-0 flex-1 text-sm leading-snug text-zinc-500 dark:text-zinc-400">Django-based career intelligence platform using LLMs, embeddings, and automated job analysis.</p>
+                  </a>
+                  <a href="#project-roberta-sentiment" class="flex h-full min-h-[7.25rem] flex-col gap-1 rounded-md border-l-4 border-zinc-900 bg-zinc-50 p-3 no-underline transition hover:bg-zinc-100 dark:border-zinc-100 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div class="shrink-0 text-sm font-bold text-zinc-900 dark:text-zinc-50 sm:w-[38%]">Social Sentiment Pipeline</div>
+                    <p class="m-0 flex-1 text-sm leading-snug text-zinc-500 dark:text-zinc-400">Ensemble NLP sentiment classification using RoBERTa and traditional ML models.</p>
+                  </a>
+                  <a href="#project-tpc" class="flex h-full min-h-[7.25rem] flex-col gap-1 rounded-md border-l-4 border-zinc-900 bg-zinc-50 p-3 no-underline transition hover:bg-zinc-100 dark:border-zinc-100 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div class="shrink-0 text-sm font-bold text-zinc-900 dark:text-zinc-50 sm:w-[38%]">TPC (Two-Phase Classification)</div>
+                    <p class="m-0 flex-1 text-sm leading-snug text-zinc-500 dark:text-zinc-400">A novel classification method for imbalanced data using two-phase cost-sensitive SVM and genetic algorithm.</p>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-center mb-3">
-                <i class="bi bi-envelope-fill me-3 fs-4 text-primary"></i>
-                <div>
-                  <h5 class="mb-0">Email</h5>
-                  <a href="mailto:godhanko@gmail.com" class="text-decoration-none">godhanko@gmail.com</a>
+          </div>
+
+          <div class="mt-4">
+            <div class="ui-card">
+              <div class="ui-card-body">
+                <h5 class="mb-4 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-people-fill"></i>Soft Skills</h5>
+                <div class="grid gap-4 sm:grid-cols-3">
+                  <div>
+                    <strong>Project Leadership</strong>
+                    <p class="mt-1 text-sm muted">Leading and coordinating IT/OT projects</p>
+                  </div>
+                  <div>
+                    <strong>Problem Solving</strong>
+                    <p class="mt-1 text-sm muted">Creating automation to improve quality</p>
+                  </div>
+                  <div>
+                    <strong>Communication</strong>
+                    <p class="mt-1 text-sm muted">Cross-functional collaboration</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-    <!-- Professional Highlight -->
-    <section id="skills" class="mb-5">
-    <h2 class="section-title"><i class="bi bi-lightbulb-fill me-2"></i>Professional Highlights</h2> 
-    <div class="row g-4 align-items-stretch">
-    <div class="col-lg-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-tools me-2"></i>Technical Skills</h5>
-          <div class="skills-compact">
-            <div class="skill-group">
-              <strong>AI & LLM Engineering :</strong> LLM Fine-Tuning , RAG, Model Evaluation, Prompt Engineering, Agentic AI Development.
-            </div>
-            <div class="skill-group">
-              <strong>Programming & Scripting : </strong> Python, Java, SQL, PowerShell, Bash, JavaScript, Git, Docker, MLOps.
-            </div>
-            <div class="skill-group">
-              <strong>Big Data & Machine Learning :</strong> Hadoop, NLP Fundamentals, TensorFlow, PyTorch, Scikit-Learn, BeautifulSoup, CUDA.
-            </div>
-            <div class="skill-group">
-              <strong>Data Visualization :</strong> Seaborn, Matplotlib, Tableau, PowerBI. 
-            </div>
-            <div class="skill-group">
-              <strong>Virtualization & Infrastructure:</strong> VMware ecosystem, System optimization, Performance analysis.
-            </div>
-            <div class="skill-group">
-              <strong>Operation Hardware Management :</strong> Linux OS based technique, x86 server management, NAS management, Ignition SCADA system management, Tenable OT, HighByte, CyberArk.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-graph-up me-2"></i>Project Experience</h5>
-          <div class="project-stats-compact">
-              <div class="project-highlight-compact mb-4">
-              <i class="bi bi-star-fill text-warning"></i>
-              Primarily focus on Big Data Hadoop solutions, operational efficiency, overseas support, and factory requests.
-            </div>
-            <div class="project-stat-item mt-3">
-              <span class="stat-number">30+</span>
-              <span class="stat-label">Virtualization Projects</span>
-            </div>
-            <div class="project-stat-item">
-              <span class="stat-number">20+</span>
-              <span class="stat-label">Factory Automation Optimizations</span>
-            </div>
-            <div class="project-stat-item">
-              <span class="stat-number">10+</span>
-              <span class="stat-label">Large NAS Clusters Deployments</span>
-            </div>
-            <div class="project-stat-item">
-              <span class="stat-number">10+</span>
-              <span class="stat-label">Automation Solutions</span>
-            </div>
-            <div class="project-stat-item">
-              <span class="stat-number">10+</span>
-              <span class="stat-label"> Industrial Integration Projects</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row g-4 mt-1">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="highlights-ai-header">
-            <h5 class="card-title mb-0"><i class="bi bi-cpu-fill me-2"></i>AI & Data Science Projects</h5>
-            <a href="#projects" class="btn btn-sm btn-outline-primary highlights-more-btn">
-              More Details <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-          </div>
-          <p class="highlights-section-intro">Hands-on builds spanning LLM applications, NLP pipelines, and deep learning systems.</p>
-          <div class="highlights-ai-grid">
-            <a href="#project-cast-it" class="ai-project-item">
-              <div class="ai-project-title">AI Podcast Generator</div>
-              <p class="ai-project-description">Delivers personalized recommendations for LLM-generated podcasts using RAG-based retrieval..</p>
-            </a>
-            <a href="#project-akb" class="ai-project-item">
-              <div class="ai-project-title">Automatic Knowledge Base</div>
-              <p class="ai-project-description">LLM-powered knowledge graph with semantic retrieval and persistent memory.</p>
-            </a>
-            <a href="#project-jaegeros" class="ai-project-item">
-              <div class="ai-project-title">Job Intelligence Platform</div>
-              <p class="ai-project-description">Django-based career intelligence platform using LLMs, embeddings, and automated job analysis.</p>
-            </a>
-            <a href="#project-roberta-sentiment" class="ai-project-item">
-              <div class="ai-project-title">Social Sentiment Pipeline</div>
-              <p class="ai-project-description">Ensemble NLP sentiment classification using RoBERTa and traditional ML models.</p>
-            </a>
-            <a href="#project-tpc" class="ai-project-item">
-              <div class="ai-project-title">TPC (Two-Phase Classification)</div>
-              <p class="ai-project-description">A novel classification method for imbalanced data using two-phase cost-sensitive SVM and genetic algorithm.</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Soft Skills -->
-  <div class="row g-4 mt-2">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Soft Skills</h5>
-          <div class="row">
-            <div class="col-md-4">
-              <strong>Project Leadership</strong>
-              <p class="small">Leading and coordinating IT/OT projects</p>
-            </div>
-            <div class="col-md-4">
-              <strong>Problem Solving</strong>
-              <p class="small">Creating automation to improve quality</p>
-            </div>
-            <div class="col-md-4">
-              <strong>Communication</strong>
-              <p class="small">Cross-functional collaboration</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-             <!-- Education -->
-        <section id="education" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-book-fill me-2"></i>Education</h2>
-
-          <div class="accordion" id="eduAccordion">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="edu1">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#eduCollapse1">
-                  University of Southern California – MSc in Applied Data Science (Expected Graduation: May 2027)
-                </button>
-              </h2>
-              <div id="eduCollapse1" class="accordion-collapse collapse show" data-bs-parent="#eduAccordion">
-                <div class="accordion-body">
-                  <i class="bi bi-bookmark-check me-2"></i>Coursework
-                  <ul>
-                    <li>Machine Learning for Data Science</li>
-                    <li>Principles of Programming for Data Science</li>
-                    <li>Foundations of Data Management</li>
-                  </ul>
-                </div>
+        <!-- Education -->
+        <section id="education" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-book-fill"></i>Education</h2>
+          <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800" id="eduAccordion">
+            <details class="edu-item group border-b border-zinc-200 open:bg-white dark:border-zinc-800 dark:open:bg-zinc-900" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+                <span>University of Southern California – MSc in Applied Data Science (Expected Graduation: May 2027)</span>
+                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+              </summary>
+              <div class="px-4 pb-4 text-sm">
+                <i class="bi bi-bookmark-check me-2"></i>Coursework
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                  <li>Machine Learning for Data Science</li>
+                  <li>Principles of Programming for Data Science</li>
+                  <li>Foundations of Data Management</li>
+                </ul>
               </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="edu2">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#eduCollapse2">
-                  National Cheng Kung University – MSc of Information Management (Sept. 2018 – Jun. 2020)
-                </button>
-              </h2>
-              <div id="eduCollapse2" class="accordion-collapse collapse" data-bs-parent="#eduAccordion">
-                <div class="accordion-body">
-                  <i class="bi bi-bookmark-check me-2"></i>Coursework
-                  <ul>
-                    <li>Big Data Analytics, practice and Application</li>
-                    <li>Business Intelligence and Decision Support Systems</li>
-                    <li>Applications of Artificial Neural Networks</li>
-                    <li>Machine Learning</li>
-                    <li>Project Management</li>
-                  </ul>
-                </div>
+            </details>
+            <details class="edu-item group border-b border-zinc-200 dark:border-zinc-800">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+                <span>National Cheng Kung University – MSc of Information Management (Sept. 2018 – Jun. 2020)</span>
+                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+              </summary>
+              <div class="px-4 pb-4 text-sm">
+                <i class="bi bi-bookmark-check me-2"></i>Coursework
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                  <li>Big Data Analytics, practice and Application</li>
+                  <li>Business Intelligence and Decision Support Systems</li>
+                  <li>Applications of Artificial Neural Networks</li>
+                  <li>Machine Learning</li>
+                  <li>Project Management</li>
+                </ul>
               </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="edu3">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#eduCollapse3">
-                  National Chung Cheng University – BSc of Information Management (Sept. 2014 – Jun. 2018)
-                </button>
-              </h2>
-              <div id="eduCollapse3" class="accordion-collapse collapse" data-bs-parent="#eduAccordion">
-                <div class="accordion-body">
-                  <i class="bi bi-bookmark-check me-2"></i>Coursework
-                  <ul>
-                    <li>Database Management</li>
-                    <li>Data Structure</li>
-                    <li>Data Mining and Application</li>
-                    <li>System Analysis and Design</li>
-                    <li>Webpage Design</li>
-                  </ul>
-                </div>
+            </details>
+            <details class="edu-item group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+                <span>National Chung Cheng University – BSc of Information Management (Sept. 2014 – Jun. 2018)</span>
+                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+              </summary>
+              <div class="px-4 pb-4 text-sm">
+                <i class="bi bi-bookmark-check me-2"></i>Coursework
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                  <li>Database Management</li>
+                  <li>Data Structure</li>
+                  <li>Data Mining and Application</li>
+                  <li>System Analysis and Design</li>
+                  <li>Webpage Design</li>
+                </ul>
               </div>
-            </div>
+            </details>
           </div>
         </section>
 
         <!-- Professional Experience -->
-        <section id="experience" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-briefcase-fill me-2"></i>Professional Experience</h2>
+        <section id="experience" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-briefcase-fill"></i>Professional Experience</h2>
 
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start">
+          <div class="ui-card mb-4">
+            <div class="ui-card-body">
+              <div class="flex flex-wrap items-start justify-between gap-2">
                 <strong class="job-title">USC NLP Group Research Member</strong>
-                <span class="badge bg-primary">Jun 2026 – Present</span>
+                <span class="badge">Jun 2026 – Present</span>
               </div>
-              <p class="text-muted">USC Thomas Lord Department of Computer Science</p>
-
-              <div class="tools-line">
-                <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                LLM Fine-Tuning, RAG, Prompt Engineering, Python, PyTorch, TensorFlow, NLP, Data Preprocessing, Model Evaluation.
-              </div>
-
-              <h6 class="mt-3"><i class="bi bi-journal-bookmark me-2"></i>Notable Experience:</h6>
-              <ul>
+              <p class="mt-1 muted">USC Thomas Lord Department of Computer Science</p>
+              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> LLM Fine-Tuning, RAG, Prompt Engineering, Python, PyTorch, TensorFlow, NLP, Data Preprocessing, Model Evaluation.</div>
+              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                 <li>Conduct research on trustworthy AI and large language models.</li>
                 <li>Develop evaluation methodologies and pipelines for NLP systems and AI applications.</li>
                 <li>Collaborate with researchers on experimental design, implementation, and analysis.</li>
@@ -1221,31 +612,24 @@
             </div>
           </div>
 
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start">
+          <div class="ui-card mb-4">
+            <div class="ui-card-body">
+              <div class="flex flex-wrap items-start justify-between gap-2">
                 <strong class="job-title">Operational Technology Engineer</strong>
-                <span class="badge bg-primary">Oct 2023 – Jun 2025</span>
+                <span class="badge">Oct 2023 – Jun 2025</span>
               </div>
-              <p class="text-muted">Entegris, Inc.</p>
-
-              <div class="tools-line">
-                <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                Ignition SCADA, Python, Java, SQL, HighByte Intelligence Hub, Tenable OT, CyberArk, PowerBI, Cross-functional Communication, Problem-solving, Project management.
-              </div>
-
-              <h6 class="mt-3"><i class="bi bi-brightness-high me-2"></i>Key Achievements:</h6>
-              <ul>
+              <p class="mt-1 muted">Entegris, Inc.</p>
+              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Ignition SCADA, Python, Java, SQL, HighByte Intelligence Hub, Tenable OT, CyberArk, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
+              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
+              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                 <li>Experienced with Ignition SCADA and IEC 62443 standard to optimize system architecture and design system standards for KSP.</li>
                 <li>Leading projects to solve KSP Ignition performance issues from constant stuttering to well performance.</li>
                 <li>Experienced with global operations which design and implement new methods, such as customized HighByte projects and Cybersecurity architecture improvement, to enhance KSP operation efficiency and security.</li>
               </ul>
-
-              <h6 class="mt-3"><i class="bi bi-journal-bookmark me-2"></i>Notable Experience:</h6>
-              <ul>
-                <li>
-                  Participate in the implementation of SCADA &amp; Cybersecurity architecture in KSP:
-                  <ol>
+              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+              <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <li>Participate in the implementation of SCADA &amp; Cybersecurity architecture in KSP:
+                  <ol class="mt-1 list-decimal space-y-1 pl-5">
                     <li>Coordinate and participate in 20+ Ignition ecosystem optimization (EX. HMI layout design, Tag binding &amp; Script editing) of factory equipment with PE, Operation &amp; IT team for improving operation efficiency.</li>
                     <li>Leading Ignition node extension project, which cooperated with global IT team and PE team, for improving the system effectiveness from constant stuttering and poor availability to stable performance.</li>
                     <li>Wrapping up the robust cybersecurity implementation, such as Tenable O.T and CyberArk, abides by the IEC 62443 standard with Cybersecurity and IT experts in the USA and Malaysia.</li>
@@ -1256,54 +640,44 @@
             </div>
           </div>
 
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start">
+          <div class="ui-card mb-4">
+            <div class="ui-card-body">
+              <div class="flex flex-wrap items-start justify-between gap-2">
                 <strong class="job-title">Information Technology Engineer</strong>
-                <span class="badge bg-primary">Sep 2020 – Oct 2023</span>
+                <span class="badge">Sep 2020 – Oct 2023</span>
               </div>
-              <p class="text-muted">TSMC</p>
-
-              <div class="tools-line">
-                <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                Python, Java, SQL, PowerShell, Bash, Linux, Git, Hadoop, VMware, NAS(Dell Isilon,NetApp), x86 servers(HP,Supermicro,Dell,Lenovo), CyberArk, Tableau, PowerBI, Cross-functional Communication, Problem-solving, Project management.
-              </div>
-
-              <h6 class="mt-3"><i class="bi bi-brightness-high me-2"></i>Key Achievements:</h6>
-              <ul>
+              <p class="mt-1 muted">TSMC</p>
+              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Java, SQL, PowerShell, Bash, Linux, Git, Hadoop, VMware, NAS(Dell Isilon,NetApp), x86 servers(HP,Supermicro,Dell,Lenovo), CyberArk, Tableau, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
+              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
+              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                 <li>Experienced with BigData, VMware, NAS management and x86 knowledge to develop automation to optimize the system performance with dramatic improvement and reduce implementation time.</li>
                 <li>Specialized in dealing with TSMC BigData architecture which is one of the largest and most complicated computing clusters in the world.</li>
                 <li>Leading data migration projects to solve poor computing performance and data loss with auto tools.</li>
               </ul>
-
-              <h6 class="mt-3"><i class="bi bi-journal-bookmark me-2"></i>Notable Experience:</h6>
-              <ul>
-                <li>
-                  Implement automation for boosting daily operation efficiency with CI/CD:
-                  <ol>
+              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+              <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <li>Implement automation for boosting daily operation efficiency with CI/CD:
+                  <ol class="mt-1 list-decimal space-y-1 pl-5">
                     <li>Upgrade 480 x86 servers’ firmware &amp; driver for solving WAL file corruption, which has impacted wafer production severely, in 2.5 weeks (10 days) instead of 2 months.</li>
                     <li>Design CyberArk security plugin for numerous brands (HP, Dell, Supermicro, Lenovo) of x86 servers to improve the credential success rate of CyberArk management from 24% to 85%.</li>
                     <li>Design x86 server auto disk maintenance for vSAN with disk removal, disk reclaim, and disk group build up to decrease maintenance time by reducing human intervention.</li>
                     <li>Develop several auto tools for daily operation and emergencies: VM rebalance, server sanity check, server installation config, etc.</li>
                   </ol>
                 </li>
-                <li>
-                  VMware architecture design, installation, operation, event handling and performance optimization for Fab Cloud Service and Big Data Application Service built up in Giga Fab:
-                  <ol>
+                <li>VMware architecture design, installation, operation, event handling and performance optimization for Fab Cloud Service and Big Data Application Service built up in Giga Fab:
+                  <ol class="mt-1 list-decimal space-y-1 pl-5">
                     <li>Implement and optimize VMware cluster automation such as VM provision, network config, password management to fulfill massive Fab construction requests.</li>
                     <li>Construct 30+ VMware eco-system and provide valuable insight into performance analysis for better operation quality in H/M/T-sites and overseas factories (AZ &amp; China).</li>
                   </ol>
                 </li>
-                <li>
-                  In charge of NAS (NetApp &amp; Isilon) management and operation:
-                  <ol>
+                <li>In charge of NAS (NetApp &amp; Isilon) management and operation:
+                  <ol class="mt-1 list-decimal space-y-1 pl-5">
                     <li>Lead Data migration from different NAS for HDFS and NFS separation to solve poor computing and data loss by implementing automation methods to reduce time from 1months to 1.5 weeks (6 days).</li>
                     <li>Transform Big Data storage infrastructure from spine-leaf to central-controlled design to prevent split-brain by implementing Isilon NAS migration and performance tuning.</li>
                   </ol>
                 </li>
-                <li>
-                  Participate in Big Data Hadoop service operation and event support for Fab data analysis:
-                  <ol>
+                <li>Participate in Big Data Hadoop service operation and event support for Fab data analysis:
+                  <ol class="mt-1 list-decimal space-y-1 pl-5">
                     <li>Transform entire Big Data structure from Cloudera to Apache platform by creating 3000+ VM with auto tools and performance optimization such as datastore I/O latency control.</li>
                   </ol>
                 </li>
@@ -1311,149 +685,99 @@
             </div>
           </div>
 
-          <!-- small experience -->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <strong class="job-title">Research Assistant</strong>
-                    <span class="badge bg-secondary">Aug 2019 – Jun 2020</span>
-                  </div>
-                  <p class="text-muted">National Cheng Kung University</p>
-                  
-                  <div class="tools-line">
-                    <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                    Python, Seaborn, Matplotlib, pyTorch, TensorFlow, BeautifulSoup, Scikit-Learn.
-                  </div>
-                  
-                  <ul>
-                    <li>Used fuzzy-based grey model to extract behavior from short-term time series data.</li>
-                    <li>Cooperated with professors and PhD students on experiments.</li>
-                  </ul>
+          <div class="mb-4 grid gap-4 sm:grid-cols-2">
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <strong class="job-title">Research Assistant</strong>
+                  <span class="badge-muted">Aug 2019 – Jun 2020</span>
                 </div>
+                <p class="mt-1 muted">National Cheng Kung University</p>
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Seaborn, Matplotlib, pyTorch, TensorFlow, BeautifulSoup, Scikit-Learn.</div>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Used fuzzy-based grey model to extract behavior from short-term time series data.</li>
+                  <li>Cooperated with professors and PhD students on experiments.</li>
+                </ul>
               </div>
             </div>
-            
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <strong class="job-title">Teaching Assistant</strong>
-                    <span class="badge bg-secondary">Jan 2019 – Jan 2020</span>
-                  </div>
-                  <p class="text-muted">National Cheng Kung University</p>
-                  
-                  <div class="tools-line">
-                    <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                    Communication, Problem-solving.
-                  </div>
-                  
-                  <ul>
-                    <li>Supported students with management problems and academic advice.</li>
-                    <li>Provided feedback on homework to develop leadership skills.</li>
-                  </ul>
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <strong class="job-title">Teaching Assistant</strong>
+                  <span class="badge-muted">Jan 2019 – Jan 2020</span>
                 </div>
+                <p class="mt-1 muted">National Cheng Kung University</p>
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Communication, Problem-solving.</div>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Supported students with management problems and academic advice.</li>
+                  <li>Provided feedback on homework to develop leadership skills.</li>
+                </ul>
               </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <strong class="job-title">Internship</strong>
-                    <span class="badge bg-secondary">Jul.2018 – Aug.2018</span>
-                  </div>
-                  <p class="text-muted">NEUX Company</p>
-                  
-                  <div class="tools-line">
-                    <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                    PowerBI, Communication, Problem-solving, Presentation.
-                  </div>
-                  
-                  <ul>
-                    <li>Conducting practical ideas to improve information architecture of mobile pages and Apps.</li>
-                    <li>Consulting the demands of clients and making information architecture much easier to navigate.</li>
-                  </ul>
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <strong class="job-title">Internship</strong>
+                  <span class="badge-muted">Jul.2018 – Aug.2018</span>
                 </div>
+                <p class="mt-1 muted">NEUX Company</p>
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> PowerBI, Communication, Problem-solving, Presentation.</div>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Conducting practical ideas to improve information architecture of mobile pages and Apps.</li>
+                  <li>Consulting the demands of clients and making information architecture much easier to navigate.</li>
+                </ul>
               </div>
             </div>
-
-
-            <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <strong class="job-title">Web Design (side project) </strong>
-                    <span class="badge bg-secondary">Sept.2016 – Oct.2016 </span>
-                  </div>
-                  <p class="text-muted">Fresh Taiwan</p>
-                  
-                  <div class="tools-line">
-                    <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                    JavaScript, Bootstrap.
-                  </div>
-                  
-                  <ul>
-                    <li>Constructing webpage for introducing new product models.</li>
-                    <li>Trying to match the expectations of the owner by searching for his demands through meeting.</li>
-                  </ul>
+            <div class="ui-card h-full">
+              <div class="ui-card-body">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <strong class="job-title">Web Design (side project) </strong>
+                  <span class="badge-muted">Sept.2016 – Oct.2016 </span>
                 </div>
+                <p class="mt-1 muted">Fresh Taiwan</p>
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> JavaScript, Bootstrap.</div>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Constructing webpage for introducing new product models.</li>
+                  <li>Trying to match the expectations of the owner by searching for his demands through meeting.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="ui-card h-full sm:col-span-2 sm:max-w-[calc(50%-0.5rem)]">
+              <div class="ui-card-body">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <strong class="job-title">English Assistant  </strong>
+                  <span class="badge-muted">Jul.2016 – Aug.2016</span>
+                </div>
+                <p class="mt-1 muted">Gloria Institution</p>
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> English, Communication, Problem-solving.</div>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>I worked with foreign teachers to create good learning surroundings for students.</li>
+                  <li>Supporting students with their English problems, such as spelling and grammar errors.</li>
+                </ul>
               </div>
             </div>
           </div>
-          
-          <div class="row">
-           <div class="col-md-6">
-              <div class="card h-100">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <strong class="job-title">English Assistant  </strong>
-                    <span class="badge bg-secondary">Jul.2016 – Aug.2016</span>
-                  </div>
-                  <p class="text-muted">Gloria Institution</p>
-                  
-                  <div class="tools-line">
-                    <i class="bi bi-tools me-2"></i><strong>Tools & Skills:</strong>
-                    English, Communication, Problem-solving.
-                  </div>
-                  <ul>
-                    <li>I worked with foreign teachers to create good learning surroundings for students.</li>
-                    <li>Supporting students with their English problems, such as spelling and grammar errors.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div> 
         </section>
 
         <!-- Projects -->
-        <section id="projects" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Recent Projects</h2>
+        <section id="projects" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-grid-3x3-gap-fill"></i>Recent Projects</h2>
           <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
         </section>
 
         <!-- Publication -->
-        <section id="publication" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-journal-text me-2"></i>Publication</h2>
-          <div class="card">
-            <div class="card-body">
-              <h5>A Novel Classification Method Based on a Two-Phase Technique for Learning Imbalanced Text Data</h5>
-              <p class="text-muted"><em>Symmetry</em>, 2022</p>
-              
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <a href="https://www.mdpi.com/2073-8994/14/3/567" target="_blank" class="btn btn-sm btn-outline-primary">
-                  <i class="bi bi-link-45deg me-1"></i>Publication URL
-                </a>
-                <a href="https://github.com/drhanko/TPC" target="_blank" class="btn btn-sm btn-outline-secondary">
-                  <i class="bi bi-github me-1"></i>Dissertation Method
-                </a>
+        <section id="publication" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-journal-text"></i>Publication</h2>
+          <div class="ui-card">
+            <div class="ui-card-body">
+              <h5 class="text-lg font-semibold">A Novel Classification Method Based on a Two-Phase Technique for Learning Imbalanced Text Data</h5>
+              <p class="mt-1 muted"><em>Symmetry</em>, 2022</p>
+              <div class="mb-3 mt-3 flex flex-wrap gap-2">
+                <a href="https://www.mdpi.com/2073-8994/14/3/567" target="_blank" class="btn-outline-sm"><i class="bi bi-link-45deg"></i>Publication URL</a>
+                <a href="https://github.com/drhanko/TPC" target="_blank" class="btn-outline-sm"><i class="bi bi-github"></i>Dissertation Method</a>
               </div>
-              
-              <p>This research presents an innovative approach to handling imbalanced text data classification challenges through a two-phase technique that improves model performance on minority classes.</p>
-              <div class="d-flex flex-wrap gap-1">
+              <p class="mb-3 text-zinc-600 dark:text-zinc-300">This research presents an innovative approach to handling imbalanced text data classification challenges through a two-phase technique that improves model performance on minority classes.</p>
+              <div class="flex flex-wrap gap-1">
                 <span class="hero-keyword hero-keyword--blue">Machine Learning</span>
                 <span class="hero-keyword hero-keyword--violet">Imbalanced Dataset</span>
                 <span class="hero-keyword hero-keyword--teal">Genetic Algorithm</span>
@@ -1463,37 +787,29 @@
         </section>
 
         <!-- Competition -->
-        <section id="competition" class="mb-5">
-          <h2 class="section-title"><i class="bi bi-trophy-fill me-2"></i>Competition</h2>
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5>2026 University of Southern California AI4SE Hackathon</h5>
-              <p class="text-muted">Participants’ Choice</p>
-
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <a href="https://github.com/wenyenhsu/cast-it-podcast-builder" target="_blank" class="btn btn-sm btn-outline-secondary">
-                  <i class="bi bi-github me-1"></i>Cast-It repo
-                </a>
+        <section id="competition" class="mb-12 scroll-mt-24">
+          <h2 class="section-title"><i class="bi bi-trophy-fill"></i>Competition</h2>
+          <div class="ui-card mb-4">
+            <div class="ui-card-body">
+              <h5 class="text-lg font-semibold">2026 University of Southern California AI4SE Hackathon</h5>
+              <p class="mt-1 muted">Participants’ Choice</p>
+              <div class="mb-3 mt-3 flex flex-wrap gap-2">
+                <a href="https://github.com/wenyenhsu/cast-it-podcast-builder" target="_blank" class="btn-outline-sm"><i class="bi bi-github"></i>Cast-It repo</a>
               </div>
-
-              <p>Cast-It is a Django-based AI podcast platform that turns daily knowledge into finished episodes, using RAG and LLM engineering (prompt &amp; context).</p>
-
-              <div class="d-flex flex-wrap gap-1">
+              <p class="mb-3 text-zinc-600 dark:text-zinc-300">Cast-It is a Django-based AI podcast platform that turns daily knowledge into finished episodes, using RAG and LLM engineering (prompt &amp; context).</p>
+              <div class="flex flex-wrap gap-1">
                 <span class="hero-keyword hero-keyword--blue">LLM Aplication</span>
                 <span class="hero-keyword hero-keyword--violet">Trustworthy AI</span>
                 <span class="hero-keyword hero-keyword--teal">Recommendation System</span>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5>2017 National Taiwan University Creativity Entrepreneurship Competition</h5>
-              <p class="text-muted">Honorable Mention</p>
-
-              <p>Developed a practical sports application with innovative features including voice input, step counting, calorie tracking, and comparative data visualization.</p>
-
-              <div class="d-flex flex-wrap gap-1">
+          <div class="ui-card">
+            <div class="ui-card-body">
+              <h5 class="text-lg font-semibold">2017 National Taiwan University Creativity Entrepreneurship Competition</h5>
+              <p class="mt-1 muted">Honorable Mention</p>
+              <p class="mb-3 mt-3 text-zinc-600 dark:text-zinc-300">Developed a practical sports application with innovative features including voice input, step counting, calorie tracking, and comparative data visualization.</p>
+              <div class="flex flex-wrap gap-1">
                 <span class="hero-keyword hero-keyword--blue">Mobile App</span>
                 <span class="hero-keyword hero-keyword--violet">Health Tracking</span>
                 <span class="hero-keyword hero-keyword--teal">Data Visualization</span>
@@ -1502,16 +818,16 @@
           </div>
         </section>
 
-        <footer class="text-center text-muted mt-5 pt-4 border-top">
+        <footer class="mt-12 border-t border-zinc-200 pt-6 text-center text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
           <p>&copy; 2026 Hank Hsu • Powered by GitHub</p>
-          <p class="small">Last updated: June 2026</p>
+          <p class="mt-1 text-sm">Last updated: June 2026</p>
         </footer>
       </main>
 
       <!-- navigator -->
-      <aside class="col-md-3 d-none d-md-block">
-        <nav id="sidebar-nav" class="nav flex-column text-end">
-          <span class="fw-bold mb-2"><i class="bi bi-file-richtext-fill me-2"></i>Navigation</span>
+      <aside class="hidden md:col-span-3 md:block">
+        <nav id="sidebar-nav" class="sticky top-24 flex flex-col text-right">
+          <span class="mb-2 font-bold"><i class="bi bi-file-richtext-fill me-2"></i>Navigation</span>
           <a class="nav-link" href="#facts-about-me">Facts about me</a>
           <a class="nav-link" href="#contact">Contact Info</a>
           <a class="nav-link" href="#skills">Professional Highlights</a>
@@ -1520,13 +836,12 @@
           <a class="nav-link" href="#projects">Recent Projects</a>
           <a class="nav-link" href="#publication">Publication</a>
           <a class="nav-link" href="#competition">Competition</a>
-          
-          <div class="mt-4 pt-3 border-top">
-            <button class="btn btn-outline-primary w-100 mb-2" id="themeToggleBtn">
-              <i class="bi bi-moon me-2"></i>Dark Mode
+          <div class="mt-4 space-y-2 border-t border-zinc-200 pt-4 dark:border-zinc-800">
+            <button type="button" class="btn-outline w-full" id="themeToggleBtn">
+              <i class="bi bi-moon"></i>Dark Mode
             </button>
-            <a href="#contact" class="btn btn-primary w-100">
-              <i class="bi bi-envelope me-2"></i>Contact Me
+            <a href="#contact" class="btn-primary w-full" id="sidebarContactBtn">
+              <i class="bi bi-envelope"></i>Contact Me
             </a>
           </div>
         </nav>
@@ -1541,7 +856,7 @@
       <i class="bi bi-chevron-up"></i>
     </button>
     <div class="mobile-nav-viewport" id="mobileNavViewport">
-      <div class="mobile-nav-links nav flex-column text-end" id="mobileNavLinks"></div>
+      <div class="mobile-nav-links" id="mobileNavLinks"></div>
     </div>
     <button type="button" class="mobile-nav-scroll-btn" id="mobileNavScrollDown" aria-label="Scroll navigation down">
       <i class="bi bi-chevron-down"></i>
@@ -1551,17 +866,12 @@
     </button>
   </div>
 
-  <!-- Floating action button (menu toggle on mobile, back-to-top on desktop) -->
-  <button class="floating-btn btn btn-primary" id="backToTop" title="Menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+  <button class="floating-btn" id="backToTop" title="Menu" aria-expanded="false" aria-controls="mobile-nav-panel">
     <i class="bi bi-list" id="floatingBtnIcon"></i>
   </button>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/projects.js"></script>
-
   <script>
-    // dark/light mode — follow system by default; button stores an override
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const root = document.documentElement;
     const THEME_OVERRIDE_KEY = 'theme-override';
@@ -1578,7 +888,7 @@
     }
 
     function applyTheme(theme) {
-      root.setAttribute('data-bs-theme', theme);
+      root.classList.toggle('dark', theme === 'dark');
       updateThemeButton(theme);
     }
 
@@ -1586,13 +896,9 @@
       const buttons = [themeToggleBtn, document.getElementById('themeToggleBtnMobile')].filter(Boolean);
       buttons.forEach((btn) => {
         if (theme === 'dark') {
-          btn.innerHTML = '<i class="bi bi-sun me-2"></i>Light Mode';
-          btn.classList.remove('btn-outline-primary');
-          btn.classList.add('btn-outline-warning');
+          btn.innerHTML = '<i class="bi bi-sun"></i>Light Mode';
         } else {
-          btn.innerHTML = '<i class="bi bi-moon me-2"></i>Dark Mode';
-          btn.classList.remove('btn-outline-warning');
-          btn.classList.add('btn-outline-primary');
+          btn.innerHTML = '<i class="bi bi-moon"></i>Dark Mode';
         }
       });
     }
@@ -1600,7 +906,7 @@
     applyTheme(getPreferredTheme());
 
     themeToggleBtn.addEventListener('click', () => {
-      const newTheme = root.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
+      const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
       localStorage.setItem(THEME_OVERRIDE_KEY, newTheme);
       applyTheme(newTheme);
     });
@@ -1610,8 +916,17 @@
         applyTheme(getSystemTheme());
       }
     });
-    
-    // Floating button + mobile navigation
+
+    // Education accordion: only one open at a time (Bootstrap-like)
+    document.querySelectorAll('#eduAccordion details').forEach((detail) => {
+      detail.addEventListener('toggle', () => {
+        if (!detail.open) return;
+        document.querySelectorAll('#eduAccordion details').forEach((other) => {
+          if (other !== detail) other.open = false;
+        });
+      });
+    });
+
     const backToTopBtn = document.getElementById('backToTop');
     const floatingBtnIcon = document.getElementById('floatingBtnIcon');
     const mobileNavPanel = document.getElementById('mobile-nav-panel');
@@ -1643,7 +958,8 @@
       });
       mobileNavLinks.appendChild(themeClone);
 
-      const contactClone = document.querySelector('#sidebar-nav a.btn-primary').cloneNode(true);
+      const contactClone = document.getElementById('sidebarContactBtn').cloneNode(true);
+      contactClone.id = 'mobileContactBtn';
       contactClone.addEventListener('click', () => closeMobileMenu());
       mobileNavLinks.appendChild(contactClone);
     }
@@ -1655,7 +971,7 @@
     }
 
     function scrollMobileNav(direction) {
-      const itemHeight = mobileNavViewport.querySelector('.nav-link, .btn')?.offsetHeight || 46;
+      const itemHeight = mobileNavViewport.querySelector('.nav-link, .btn-primary, .btn-outline')?.offsetHeight || 46;
       mobileNavViewport.scrollBy({ top: direction * itemHeight, behavior: 'smooth' });
     }
 
@@ -1682,11 +998,8 @@
     }
 
     function toggleMobileMenu() {
-      if (mobileMenuOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
+      if (mobileMenuOpen) closeMobileMenu();
+      else openMobileMenu();
     }
 
     function updateFloatingButtonVisibility() {
@@ -1696,7 +1009,6 @@
         backToTopBtn.title = mobileMenuOpen ? 'Close menu' : 'Menu';
         return;
       }
-
       closeMobileMenu();
       if (window.pageYOffset > 300) {
         backToTopBtn.style.display = 'flex';
@@ -1733,26 +1045,20 @@
     });
 
     updateFloatingButtonVisibility();
-    
-    // stick to top wehn reload
-    window.onload = function() {
+
+    window.onload = function () {
       window.scrollTo(0, 0);
       updateFloatingButtonVisibility();
     };
-    
+
     window.addEventListener('scroll', () => {
       let current = '';
-      const sections = document.querySelectorAll('section');
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 100) {
+      document.querySelectorAll('section').forEach((section) => {
+        if (pageYOffset >= section.offsetTop - 100) {
           current = section.getAttribute('id');
         }
       });
-      
-      const allNavLinks = document.querySelectorAll('#sidebar-nav .nav-link, #mobileNavLinks .nav-link');
-      allNavLinks.forEach(link => {
+      document.querySelectorAll('#sidebar-nav .nav-link, #mobileNavLinks .nav-link').forEach((link) => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === current) {
           link.classList.add('active');
