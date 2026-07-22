@@ -71,6 +71,18 @@
       .job-title {
         @apply text-lg font-bold text-zinc-900 dark:text-zinc-50;
       }
+      .exp-summary {
+        @apply flex w-full cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 sm:px-6;
+      }
+      .exp-summary-main {
+        @apply min-w-0 flex-1 text-left;
+      }
+      .exp-summary-meta {
+        @apply flex w-[9.75rem] shrink-0 items-center justify-end gap-2 sm:w-[11.5rem];
+      }
+      .exp-date {
+        @apply inline-flex items-center whitespace-nowrap rounded-full bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white dark:bg-zinc-100 dark:text-zinc-900;
+      }
       .tools-line {
         @apply my-3 rounded-md border-l-4 border-zinc-900 bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-800 dark:border-zinc-100 dark:bg-zinc-800/60 dark:text-zinc-100;
       }
@@ -546,13 +558,19 @@
           <h2 class="section-title"><i class="bi bi-book-fill"></i>Education</h2>
           <div class="space-y-4" id="eduAccordion">
             <details class="fold-item ui-card ui-card-lift group open:bg-white dark:open:bg-zinc-900" open>
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
-                <span>University of Southern California – MSc in Applied Data Science (Expected Graduation: May 2027)</span>
-                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
+                  <strong class="job-title">MSc in Applied Data Science</strong>
+                  <p class="mt-1 text-sm muted">University of Southern California</p>
+                </div>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Expected May 2027</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
               </summary>
-              <div class="px-5 pb-5 text-sm sm:px-6">
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Machine Learning for Data Science</li>
                   <li>Principles of Programming for Data Science</li>
                   <li>Foundations of Data Management</li>
@@ -560,13 +578,19 @@
               </div>
             </details>
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
-                <span>National Cheng Kung University – MSc of Information Management (Sept. 2018 – Jun. 2020)</span>
-                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
+                  <strong class="job-title">MSc of Information Management</strong>
+                  <p class="mt-1 text-sm muted">National Cheng Kung University</p>
+                </div>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Sept. 2018 – Jun. 2020</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
               </summary>
-              <div class="px-5 pb-5 text-sm sm:px-6">
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Big Data Analytics, practice and Application</li>
                   <li>Business Intelligence and Decision Support Systems</li>
                   <li>Applications of Artificial Neural Networks</li>
@@ -576,13 +600,19 @@
               </div>
             </details>
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
-                <span>National Chung Cheng University – BSc of Information Management (Sept. 2014 – Jun. 2018)</span>
-                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
+                  <strong class="job-title">BSc of Information Management</strong>
+                  <p class="mt-1 text-sm muted">National Chung Cheng University</p>
+                </div>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Sept. 2014 – Jun. 2018</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
               </summary>
-              <div class="px-5 pb-5 text-sm sm:px-6">
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Database Management</li>
                   <li>Data Structure</li>
                   <li>Data Mining and Application</li>
@@ -600,13 +630,13 @@
 
           <div class="space-y-4" id="expAccordion">
             <details class="fold-item ui-card ui-card-lift group open:bg-white dark:open:bg-zinc-900" open>
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">USC NLP Group Research Member</strong>
                   <p class="mt-1 text-sm muted">USC Thomas Lord Department of Computer Science</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge !rounded-full">Jun 2026 – Present</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Jun 2026 – Present</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -622,13 +652,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Operational Technology Engineer</strong>
                   <p class="mt-1 text-sm muted">Entegris, Inc.</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge !rounded-full">Oct 2023 – Jun 2025</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Oct 2023 – Jun 2025</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -655,13 +685,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Information Technology Engineer</strong>
                   <p class="mt-1 text-sm muted">TSMC</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge !rounded-full">Sep 2020 – Oct 2023</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Sep 2020 – Oct 2023</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -705,13 +735,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Research Assistant</strong>
                   <p class="mt-1 text-sm muted">National Cheng Kung University</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge-muted !rounded-full">Aug 2019 – Jun 2020</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Aug 2019 – Jun 2020</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -725,13 +755,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Teaching Assistant</strong>
                   <p class="mt-1 text-sm muted">National Cheng Kung University</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge-muted !rounded-full">Jan 2019 – Jan 2020</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Jan 2019 – Jan 2020</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -745,13 +775,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Internship</strong>
                   <p class="mt-1 text-sm muted">NEUX Company</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge-muted !rounded-full">Jul.2018 – Aug.2018</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Jul.2018 – Aug.2018</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -765,13 +795,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">Web Design (side project)</strong>
                   <p class="mt-1 text-sm muted">Fresh Taiwan</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge-muted !rounded-full">Sept.2016 – Oct.2016</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Sept.2016 – Oct.2016</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
@@ -785,13 +815,13 @@
             </details>
 
             <details class="fold-item ui-card ui-card-lift group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
-                <div class="min-w-0 text-left">
+              <summary class="exp-summary">
+                <div class="exp-summary-main">
                   <strong class="job-title">English Assistant</strong>
                   <p class="mt-1 text-sm muted">Gloria Institution</p>
                 </div>
-                <div class="flex shrink-0 items-center gap-2">
-                  <span class="badge-muted !rounded-full">Jul.2016 – Aug.2016</span>
+                <div class="exp-summary-meta">
+                  <span class="exp-date">Jul.2016 – Aug.2016</span>
                   <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
                 </div>
               </summary>
