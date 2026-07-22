@@ -38,6 +38,9 @@
       .ui-card {
         @apply rounded-xl border border-zinc-200 bg-white shadow-sm transition dark:border-zinc-800 dark:bg-zinc-900;
       }
+      .ui-card-lift {
+        @apply transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+      }
       .ui-card-body {
         @apply p-5 sm:p-6;
       }
@@ -360,8 +363,8 @@
       #sidebar-nav { display: none; }
     }
 
-    details.edu-item summary::-webkit-details-marker { display: none; }
-    details.edu-item[open] .edu-chevron { transform: rotate(180deg); }
+    details.fold-item summary::-webkit-details-marker { display: none; }
+    details.fold-item[open] .fold-chevron { transform: rotate(180deg); }
   </style>
 </head>
 <body class="bg-zinc-50 font-sans text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50">
@@ -541,13 +544,13 @@
         <!-- Education -->
         <section id="education" class="mb-12 scroll-mt-24">
           <h2 class="section-title"><i class="bi bi-book-fill"></i>Education</h2>
-          <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800" id="eduAccordion">
-            <details class="edu-item group border-b border-zinc-200 open:bg-white dark:border-zinc-800 dark:open:bg-zinc-900" open>
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+          <div class="space-y-4" id="eduAccordion">
+            <details class="fold-item ui-card ui-card-lift group open:bg-white dark:open:bg-zinc-900" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
                 <span>University of Southern California – MSc in Applied Data Science (Expected Graduation: May 2027)</span>
-                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm">
+              <div class="px-5 pb-5 text-sm sm:px-6">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
                   <li>Machine Learning for Data Science</li>
@@ -556,12 +559,12 @@
                 </ul>
               </div>
             </details>
-            <details class="edu-item group border-b border-zinc-200 dark:border-zinc-800">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
                 <span>National Cheng Kung University – MSc of Information Management (Sept. 2018 – Jun. 2020)</span>
-                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm">
+              <div class="px-5 pb-5 text-sm sm:px-6">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
                   <li>Big Data Analytics, practice and Application</li>
@@ -572,12 +575,12 @@
                 </ul>
               </div>
             </details>
-            <details class="edu-item group">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left text-sm font-medium sm:text-base">
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-left text-sm font-medium sm:px-6 sm:text-base">
                 <span>National Chung Cheng University – BSc of Information Management (Sept. 2014 – Jun. 2018)</span>
-                <i class="bi bi-chevron-down edu-chevron shrink-0 transition-transform"></i>
+                <i class="bi bi-chevron-down fold-chevron shrink-0 transition-transform"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm">
+              <div class="px-5 pb-5 text-sm sm:px-6">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-zinc-600 dark:text-zinc-300">
                   <li>Database Management</li>
@@ -595,167 +598,211 @@
         <section id="experience" class="mb-12 scroll-mt-24">
           <h2 class="section-title"><i class="bi bi-briefcase-fill"></i>Professional Experience</h2>
 
-          <div class="ui-card mb-4">
-            <div class="ui-card-body">
-              <div class="flex flex-wrap items-start justify-between gap-2">
-                <strong class="job-title">USC NLP Group Research Member</strong>
-                <span class="badge">Jun 2026 – Present</span>
-              </div>
-              <p class="mt-1 muted">USC Thomas Lord Department of Computer Science</p>
-              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> LLM Fine-Tuning, RAG, Prompt Engineering, Python, PyTorch, TensorFlow, NLP, Data Preprocessing, Model Evaluation.</div>
-              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
-                <li>Conduct research on trustworthy AI and large language models.</li>
-                <li>Develop evaluation methodologies and pipelines for NLP systems and AI applications.</li>
-                <li>Collaborate with researchers on experimental design, implementation, and analysis.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="ui-card mb-4">
-            <div class="ui-card-body">
-              <div class="flex flex-wrap items-start justify-between gap-2">
-                <strong class="job-title">Operational Technology Engineer</strong>
-                <span class="badge">Oct 2023 – Jun 2025</span>
-              </div>
-              <p class="mt-1 muted">Entegris, Inc.</p>
-              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Ignition SCADA, Python, Java, SQL, HighByte Intelligence Hub, Tenable OT, CyberArk, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
-              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
-              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
-                <li>Experienced with Ignition SCADA and IEC 62443 standard to optimize system architecture and design system standards for KSP.</li>
-                <li>Leading projects to solve KSP Ignition performance issues from constant stuttering to well performance.</li>
-                <li>Experienced with global operations which design and implement new methods, such as customized HighByte projects and Cybersecurity architecture improvement, to enhance KSP operation efficiency and security.</li>
-              </ul>
-              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-              <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
-                <li>Participate in the implementation of SCADA &amp; Cybersecurity architecture in KSP:
-                  <ol class="mt-1 list-decimal space-y-1 pl-5">
-                    <li>Coordinate and participate in 20+ Ignition ecosystem optimization (EX. HMI layout design, Tag binding &amp; Script editing) of factory equipment with PE, Operation &amp; IT team for improving operation efficiency.</li>
-                    <li>Leading Ignition node extension project, which cooperated with global IT team and PE team, for improving the system effectiveness from constant stuttering and poor availability to stable performance.</li>
-                    <li>Wrapping up the robust cybersecurity implementation, such as Tenable O.T and CyberArk, abides by the IEC 62443 standard with Cybersecurity and IT experts in the USA and Malaysia.</li>
-                    <li>Implementing 10+ Customized HighByte projects, which are for LIMS and IQC systems to exchange information between IT &amp; OT layers with protection, to fulfill the demands of the LAB &amp; Quality team.</li>
-                  </ol>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="ui-card mb-4">
-            <div class="ui-card-body">
-              <div class="flex flex-wrap items-start justify-between gap-2">
-                <strong class="job-title">Information Technology Engineer</strong>
-                <span class="badge">Sep 2020 – Oct 2023</span>
-              </div>
-              <p class="mt-1 muted">TSMC</p>
-              <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Java, SQL, PowerShell, Bash, Linux, Git, Hadoop, VMware, NAS(Dell Isilon,NetApp), x86 servers(HP,Supermicro,Dell,Lenovo), CyberArk, Tableau, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
-              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
-              <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
-                <li>Experienced with BigData, VMware, NAS management and x86 knowledge to develop automation to optimize the system performance with dramatic improvement and reduce implementation time.</li>
-                <li>Specialized in dealing with TSMC BigData architecture which is one of the largest and most complicated computing clusters in the world.</li>
-                <li>Leading data migration projects to solve poor computing performance and data loss with auto tools.</li>
-              </ul>
-              <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-              <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
-                <li>Implement automation for boosting daily operation efficiency with CI/CD:
-                  <ol class="mt-1 list-decimal space-y-1 pl-5">
-                    <li>Upgrade 480 x86 servers’ firmware &amp; driver for solving WAL file corruption, which has impacted wafer production severely, in 2.5 weeks (10 days) instead of 2 months.</li>
-                    <li>Design CyberArk security plugin for numerous brands (HP, Dell, Supermicro, Lenovo) of x86 servers to improve the credential success rate of CyberArk management from 24% to 85%.</li>
-                    <li>Design x86 server auto disk maintenance for vSAN with disk removal, disk reclaim, and disk group build up to decrease maintenance time by reducing human intervention.</li>
-                    <li>Develop several auto tools for daily operation and emergencies: VM rebalance, server sanity check, server installation config, etc.</li>
-                  </ol>
-                </li>
-                <li>VMware architecture design, installation, operation, event handling and performance optimization for Fab Cloud Service and Big Data Application Service built up in Giga Fab:
-                  <ol class="mt-1 list-decimal space-y-1 pl-5">
-                    <li>Implement and optimize VMware cluster automation such as VM provision, network config, password management to fulfill massive Fab construction requests.</li>
-                    <li>Construct 30+ VMware eco-system and provide valuable insight into performance analysis for better operation quality in H/M/T-sites and overseas factories (AZ &amp; China).</li>
-                  </ol>
-                </li>
-                <li>In charge of NAS (NetApp &amp; Isilon) management and operation:
-                  <ol class="mt-1 list-decimal space-y-1 pl-5">
-                    <li>Lead Data migration from different NAS for HDFS and NFS separation to solve poor computing and data loss by implementing automation methods to reduce time from 1months to 1.5 weeks (6 days).</li>
-                    <li>Transform Big Data storage infrastructure from spine-leaf to central-controlled design to prevent split-brain by implementing Isilon NAS migration and performance tuning.</li>
-                  </ol>
-                </li>
-                <li>Participate in Big Data Hadoop service operation and event support for Fab data analysis:
-                  <ol class="mt-1 list-decimal space-y-1 pl-5">
-                    <li>Transform entire Big Data structure from Cloudera to Apache platform by creating 3000+ VM with auto tools and performance optimization such as datastore I/O latency control.</li>
-                  </ol>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mb-4 grid gap-4 sm:grid-cols-2">
-            <div class="ui-card h-full">
-              <div class="ui-card-body">
-                <div class="flex flex-wrap items-start justify-between gap-2">
-                  <strong class="job-title">Research Assistant</strong>
-                  <span class="badge-muted">Aug 2019 – Jun 2020</span>
+          <div class="space-y-4" id="expAccordion">
+            <details class="fold-item ui-card ui-card-lift group open:bg-white dark:open:bg-zinc-900" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">USC NLP Group Research Member</strong>
+                  <p class="mt-1 text-sm muted">USC Thomas Lord Department of Computer Science</p>
                 </div>
-                <p class="mt-1 muted">National Cheng Kung University</p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge !rounded-full">Jun 2026 – Present</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> LLM Fine-Tuning, RAG, Prompt Engineering, Python, PyTorch, TensorFlow, NLP, Data Preprocessing, Model Evaluation.</div>
+                <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Conduct research on trustworthy AI and large language models.</li>
+                  <li>Develop evaluation methodologies and pipelines for NLP systems and AI applications.</li>
+                  <li>Collaborate with researchers on experimental design, implementation, and analysis.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">Operational Technology Engineer</strong>
+                  <p class="mt-1 text-sm muted">Entegris, Inc.</p>
+                </div>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge !rounded-full">Oct 2023 – Jun 2025</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Ignition SCADA, Python, Java, SQL, HighByte Intelligence Hub, Tenable OT, CyberArk, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
+                <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Experienced with Ignition SCADA and IEC 62443 standard to optimize system architecture and design system standards for KSP.</li>
+                  <li>Leading projects to solve KSP Ignition performance issues from constant stuttering to well performance.</li>
+                  <li>Experienced with global operations which design and implement new methods, such as customized HighByte projects and Cybersecurity architecture improvement, to enhance KSP operation efficiency and security.</li>
+                </ul>
+                <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+                <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Participate in the implementation of SCADA &amp; Cybersecurity architecture in KSP:
+                    <ol class="mt-1 list-decimal space-y-1 pl-5">
+                      <li>Coordinate and participate in 20+ Ignition ecosystem optimization (EX. HMI layout design, Tag binding &amp; Script editing) of factory equipment with PE, Operation &amp; IT team for improving operation efficiency.</li>
+                      <li>Leading Ignition node extension project, which cooperated with global IT team and PE team, for improving the system effectiveness from constant stuttering and poor availability to stable performance.</li>
+                      <li>Wrapping up the robust cybersecurity implementation, such as Tenable O.T and CyberArk, abides by the IEC 62443 standard with Cybersecurity and IT experts in the USA and Malaysia.</li>
+                      <li>Implementing 10+ Customized HighByte projects, which are for LIMS and IQC systems to exchange information between IT &amp; OT layers with protection, to fulfill the demands of the LAB &amp; Quality team.</li>
+                    </ol>
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">Information Technology Engineer</strong>
+                  <p class="mt-1 text-sm muted">TSMC</p>
+                </div>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge !rounded-full">Sep 2020 – Oct 2023</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
+                <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Java, SQL, PowerShell, Bash, Linux, Git, Hadoop, VMware, NAS(Dell Isilon,NetApp), x86 servers(HP,Supermicro,Dell,Lenovo), CyberArk, Tableau, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
+                <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Experienced with BigData, VMware, NAS management and x86 knowledge to develop automation to optimize the system performance with dramatic improvement and reduce implementation time.</li>
+                  <li>Specialized in dealing with TSMC BigData architecture which is one of the largest and most complicated computing clusters in the world.</li>
+                  <li>Leading data migration projects to solve poor computing performance and data loss with auto tools.</li>
+                </ul>
+                <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
+                <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                  <li>Implement automation for boosting daily operation efficiency with CI/CD:
+                    <ol class="mt-1 list-decimal space-y-1 pl-5">
+                      <li>Upgrade 480 x86 servers’ firmware &amp; driver for solving WAL file corruption, which has impacted wafer production severely, in 2.5 weeks (10 days) instead of 2 months.</li>
+                      <li>Design CyberArk security plugin for numerous brands (HP, Dell, Supermicro, Lenovo) of x86 servers to improve the credential success rate of CyberArk management from 24% to 85%.</li>
+                      <li>Design x86 server auto disk maintenance for vSAN with disk removal, disk reclaim, and disk group build up to decrease maintenance time by reducing human intervention.</li>
+                      <li>Develop several auto tools for daily operation and emergencies: VM rebalance, server sanity check, server installation config, etc.</li>
+                    </ol>
+                  </li>
+                  <li>VMware architecture design, installation, operation, event handling and performance optimization for Fab Cloud Service and Big Data Application Service built up in Giga Fab:
+                    <ol class="mt-1 list-decimal space-y-1 pl-5">
+                      <li>Implement and optimize VMware cluster automation such as VM provision, network config, password management to fulfill massive Fab construction requests.</li>
+                      <li>Construct 30+ VMware eco-system and provide valuable insight into performance analysis for better operation quality in H/M/T-sites and overseas factories (AZ &amp; China).</li>
+                    </ol>
+                  </li>
+                  <li>In charge of NAS (NetApp &amp; Isilon) management and operation:
+                    <ol class="mt-1 list-decimal space-y-1 pl-5">
+                      <li>Lead Data migration from different NAS for HDFS and NFS separation to solve poor computing and data loss by implementing automation methods to reduce time from 1months to 1.5 weeks (6 days).</li>
+                      <li>Transform Big Data storage infrastructure from spine-leaf to central-controlled design to prevent split-brain by implementing Isilon NAS migration and performance tuning.</li>
+                    </ol>
+                  </li>
+                  <li>Participate in Big Data Hadoop service operation and event support for Fab data analysis:
+                    <ol class="mt-1 list-decimal space-y-1 pl-5">
+                      <li>Transform entire Big Data structure from Cloudera to Apache platform by creating 3000+ VM with auto tools and performance optimization such as datastore I/O latency control.</li>
+                    </ol>
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">Research Assistant</strong>
+                  <p class="mt-1 text-sm muted">National Cheng Kung University</p>
+                </div>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge-muted !rounded-full">Aug 2019 – Jun 2020</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Seaborn, Matplotlib, pyTorch, TensorFlow, BeautifulSoup, Scikit-Learn.</div>
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Used fuzzy-based grey model to extract behavior from short-term time series data.</li>
                   <li>Cooperated with professors and PhD students on experiments.</li>
                 </ul>
               </div>
-            </div>
-            <div class="ui-card h-full">
-              <div class="ui-card-body">
-                <div class="flex flex-wrap items-start justify-between gap-2">
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
                   <strong class="job-title">Teaching Assistant</strong>
-                  <span class="badge-muted">Jan 2019 – Jan 2020</span>
+                  <p class="mt-1 text-sm muted">National Cheng Kung University</p>
                 </div>
-                <p class="mt-1 muted">National Cheng Kung University</p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge-muted !rounded-full">Jan 2019 – Jan 2020</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Communication, Problem-solving.</div>
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Supported students with management problems and academic advice.</li>
                   <li>Provided feedback on homework to develop leadership skills.</li>
                 </ul>
               </div>
-            </div>
-            <div class="ui-card h-full">
-              <div class="ui-card-body">
-                <div class="flex flex-wrap items-start justify-between gap-2">
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
                   <strong class="job-title">Internship</strong>
-                  <span class="badge-muted">Jul.2018 – Aug.2018</span>
+                  <p class="mt-1 text-sm muted">NEUX Company</p>
                 </div>
-                <p class="mt-1 muted">NEUX Company</p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge-muted !rounded-full">Jul.2018 – Aug.2018</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> PowerBI, Communication, Problem-solving, Presentation.</div>
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Conducting practical ideas to improve information architecture of mobile pages and Apps.</li>
                   <li>Consulting the demands of clients and making information architecture much easier to navigate.</li>
                 </ul>
               </div>
-            </div>
-            <div class="ui-card h-full">
-              <div class="ui-card-body">
-                <div class="flex flex-wrap items-start justify-between gap-2">
-                  <strong class="job-title">Web Design (side project) </strong>
-                  <span class="badge-muted">Sept.2016 – Oct.2016 </span>
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">Web Design (side project)</strong>
+                  <p class="mt-1 text-sm muted">Fresh Taiwan</p>
                 </div>
-                <p class="mt-1 muted">Fresh Taiwan</p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge-muted !rounded-full">Sept.2016 – Oct.2016</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> JavaScript, Bootstrap.</div>
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>Constructing webpage for introducing new product models.</li>
                   <li>Trying to match the expectations of the owner by searching for his demands through meeting.</li>
                 </ul>
               </div>
-            </div>
-            <div class="ui-card h-full sm:col-span-2 sm:max-w-[calc(50%-0.5rem)]">
-              <div class="ui-card-body">
-                <div class="flex flex-wrap items-start justify-between gap-2">
-                  <strong class="job-title">English Assistant  </strong>
-                  <span class="badge-muted">Jul.2016 – Aug.2016</span>
+            </details>
+
+            <details class="fold-item ui-card ui-card-lift group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 sm:px-6">
+                <div class="min-w-0 text-left">
+                  <strong class="job-title">English Assistant</strong>
+                  <p class="mt-1 text-sm muted">Gloria Institution</p>
                 </div>
-                <p class="mt-1 muted">Gloria Institution</p>
+                <div class="flex shrink-0 items-center gap-2">
+                  <span class="badge-muted !rounded-full">Jul.2016 – Aug.2016</span>
+                  <i class="bi bi-chevron-down fold-chevron text-zinc-400 transition-transform"></i>
+                </div>
+              </summary>
+              <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> English, Communication, Problem-solving.</div>
                 <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
                   <li>I worked with foreign teachers to create good learning surroundings for students.</li>
                   <li>Supporting students with their English problems, such as spelling and grammar errors.</li>
                 </ul>
               </div>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -917,12 +964,14 @@
       }
     });
 
-    // Education accordion: only one open at a time (Bootstrap-like)
-    document.querySelectorAll('#eduAccordion details').forEach((detail) => {
-      detail.addEventListener('toggle', () => {
-        if (!detail.open) return;
-        document.querySelectorAll('#eduAccordion details').forEach((other) => {
-          if (other !== detail) other.open = false;
+    // Accordion: only one open at a time within each group
+    ['#eduAccordion', '#expAccordion'].forEach((selector) => {
+      document.querySelectorAll(`${selector} details`).forEach((detail) => {
+        detail.addEventListener('toggle', () => {
+          if (!detail.open) return;
+          document.querySelectorAll(`${selector} details`).forEach((other) => {
+            if (other !== detail) other.open = false;
+          });
         });
       });
     });
