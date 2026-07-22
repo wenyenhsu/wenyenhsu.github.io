@@ -96,7 +96,13 @@
         @apply inline-flex items-center whitespace-nowrap rounded-full bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white dark:bg-zinc-100 dark:text-zinc-900;
       }
       .tools-line {
-        @apply my-3 rounded-md border-l-4 border-zinc-900 bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-800 dark:border-zinc-100 dark:bg-zinc-800/60 dark:text-zinc-100;
+        @apply my-3 rounded-md border-l-4 border-zinc-900 bg-zinc-50 px-3 py-2 text-sm font-bold text-zinc-800 dark:border-zinc-100 dark:bg-zinc-800/60 dark:text-zinc-100;
+      }
+      .detail-list {
+        @apply mt-2 list-disc space-y-1 pl-5 text-sm font-semibold text-zinc-700 dark:text-zinc-200;
+      }
+      .detail-list-tight {
+        @apply mt-2 list-disc space-y-2 pl-5 text-sm font-semibold text-zinc-700 dark:text-zinc-200;
       }
       .muted {
         @apply text-zinc-500 dark:text-zinc-400;
@@ -576,7 +582,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Machine Learning for Data Science</li>
                   <li>Principles of Programming for Data Science</li>
                   <li>Foundations of Data Management</li>
@@ -596,7 +602,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Big Data Analytics, practice and Application</li>
                   <li>Business Intelligence and Decision Support Systems</li>
                   <li>Applications of Artificial Neural Networks</li>
@@ -618,7 +624,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <i class="bi bi-bookmark-check me-2"></i>Coursework
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Database Management</li>
                   <li>Data Structure</li>
                   <li>Data Mining and Application</li>
@@ -649,7 +655,7 @@
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> LLM Fine-Tuning, RAG, Prompt Engineering, Python, PyTorch, TensorFlow, NLP, Data Preprocessing, Model Evaluation.</div>
                 <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Conduct research on trustworthy AI and large language models.</li>
                   <li>Develop evaluation methodologies and pipelines for NLP systems and AI applications.</li>
                   <li>Collaborate with researchers on experimental design, implementation, and analysis.</li>
@@ -671,13 +677,13 @@
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Ignition SCADA, Python, Java, SQL, HighByte Intelligence Hub, Tenable OT, CyberArk, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
                 <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Experienced with Ignition SCADA and IEC 62443 standard to optimize system architecture and design system standards for KSP.</li>
                   <li>Leading projects to solve KSP Ignition performance issues from constant stuttering to well performance.</li>
                   <li>Experienced with global operations which design and implement new methods, such as customized HighByte projects and Cybersecurity architecture improvement, to enhance KSP operation efficiency and security.</li>
                 </ul>
                 <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-                <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list-tight">
                   <li>Participate in the implementation of SCADA &amp; Cybersecurity architecture in KSP:
                     <ol class="mt-1 list-decimal space-y-1 pl-5">
                       <li>Coordinate and participate in 20+ Ignition ecosystem optimization (EX. HMI layout design, Tag binding &amp; Script editing) of factory equipment with PE, Operation &amp; IT team for improving operation efficiency.</li>
@@ -704,13 +710,13 @@
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Java, SQL, PowerShell, Bash, Linux, Git, Hadoop, VMware, NAS(Dell Isilon,NetApp), x86 servers(HP,Supermicro,Dell,Lenovo), CyberArk, Tableau, PowerBI, Cross-functional Communication, Problem-solving, Project management.</div>
                 <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-brightness-high"></i>Key Achievements:</h6>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Experienced with BigData, VMware, NAS management and x86 knowledge to develop automation to optimize the system performance with dramatic improvement and reduce implementation time.</li>
                   <li>Specialized in dealing with TSMC BigData architecture which is one of the largest and most complicated computing clusters in the world.</li>
                   <li>Leading data migration projects to solve poor computing performance and data loss with auto tools.</li>
                 </ul>
                 <h6 class="mt-3 flex items-center gap-2 font-semibold"><i class="bi bi-journal-bookmark"></i>Notable Experience:</h6>
-                <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list-tight">
                   <li>Implement automation for boosting daily operation efficiency with CI/CD:
                     <ol class="mt-1 list-decimal space-y-1 pl-5">
                       <li>Upgrade 480 x86 servers’ firmware &amp; driver for solving WAL file corruption, which has impacted wafer production severely, in 2.5 weeks (10 days) instead of 2 months.</li>
@@ -753,7 +759,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Python, Seaborn, Matplotlib, pyTorch, TensorFlow, BeautifulSoup, Scikit-Learn.</div>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Used fuzzy-based grey model to extract behavior from short-term time series data.</li>
                   <li>Cooperated with professors and PhD students on experiments.</li>
                 </ul>
@@ -773,7 +779,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> Communication, Problem-solving.</div>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Supported students with management problems and academic advice.</li>
                   <li>Provided feedback on homework to develop leadership skills.</li>
                 </ul>
@@ -793,7 +799,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> PowerBI, Communication, Problem-solving, Presentation.</div>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Conducting practical ideas to improve information architecture of mobile pages and Apps.</li>
                   <li>Consulting the demands of clients and making information architecture much easier to navigate.</li>
                 </ul>
@@ -813,7 +819,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> JavaScript, Bootstrap.</div>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>Constructing webpage for introducing new product models.</li>
                   <li>Trying to match the expectations of the owner by searching for his demands through meeting.</li>
                 </ul>
@@ -833,7 +839,7 @@
               </summary>
               <div class="ui-card-body border-t border-zinc-100 pt-0 dark:border-zinc-800">
                 <div class="tools-line"><i class="bi bi-tools me-2"></i><strong>Tools &amp; Skills:</strong> English, Communication, Problem-solving.</div>
-                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-300">
+                <ul class="detail-list">
                   <li>I worked with foreign teachers to create good learning surroundings for students.</li>
                   <li>Supporting students with their English problems, such as spelling and grammar errors.</li>
                 </ul>
