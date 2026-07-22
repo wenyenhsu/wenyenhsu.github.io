@@ -47,6 +47,15 @@
       .section-title {
         @apply mb-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
       }
+      .top-nav-link {
+        @apply text-[0.7rem] font-medium uppercase tracking-[0.14em] text-zinc-500 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50;
+      }
+      .top-nav-link.active {
+        @apply text-zinc-900 dark:text-zinc-50;
+      }
+      .footer-nav-link {
+        @apply text-[0.7rem] font-medium uppercase tracking-[0.14em] text-zinc-500 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50;
+      }
       .nav-link {
         @apply block rounded-md px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50;
       }
@@ -120,6 +129,7 @@
       background-repeat: no-repeat;
       height: 250px;
       margin-bottom: 100px;
+      margin-top: 3.5rem;
     }
     @media (max-width: 768px) {
       .banner { height: 180px; margin-bottom: 60px; }
@@ -372,7 +382,6 @@
     }
     @media (max-width: 768px) {
       .floating-btn { display: flex !important; }
-      #sidebar-nav { display: none; }
     }
 
     details.fold-item summary::-webkit-details-marker { display: none; }
@@ -380,6 +389,28 @@
   </style>
 </head>
 <body class="bg-zinc-50 font-sans text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50">
+  <!-- Top navigation -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/80 bg-zinc-50/90 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/90">
+    <div class="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <a href="#" class="shrink-0 text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Wen-Yen Hsu</a>
+      <nav id="top-nav" class="hidden items-center gap-5 md:flex lg:gap-7">
+        <a class="top-nav-link" href="#facts-about-me">About</a>
+        <a class="top-nav-link" href="#skills">Highlights</a>
+        <a class="top-nav-link" href="#education">Education</a>
+        <a class="top-nav-link" href="#experience">Experience</a>
+        <a class="top-nav-link" href="#projects">Projects</a>
+        <a class="top-nav-link" href="#publication">Publication</a>
+        <a class="top-nav-link" href="#site-footer">Contact</a>
+        <button type="button" id="themeToggleBtn" class="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Toggle theme">
+          <i class="bi bi-moon"></i>
+        </button>
+      </nav>
+      <button type="button" id="themeToggleBtnMobileHeader" class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 md:hidden dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Toggle theme">
+        <i class="bi bi-moon"></i>
+      </button>
+    </div>
+  </header>
+
   <!-- Banner -->
   <div class="banner relative flex items-center justify-center text-white">
     <div class="relative z-10 text-center drop-shadow">
@@ -389,8 +420,7 @@
   </div>
 
   <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
-      <main class="md:col-span-9">
+      <main>
         <header class="mb-12 text-center">
           <div class="flex flex-col items-center">
             <img src="image/self_photo.jpg" alt="Hank Hsu" class="avatar mb-4" />
@@ -420,41 +450,6 @@
               <div class="ui-card-body">
                 <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-heart"></i>Personal Interests</h5>
                 <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">Outside of work, I enjoy badminton, outdoor adventures, and analyzing the art of cinema.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Info -->
-        <section id="contact" class="mb-12 scroll-mt-24">
-          <h2 class="section-title"><i class="bi bi-envelope-plus-fill"></i>Contact Info</h2>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="flex items-center gap-3">
-              <i class="bi bi-github text-2xl text-zinc-900 dark:text-zinc-100"></i>
-              <div>
-                <h5 class="font-semibold">GitHub</h5>
-                <a href="https://github.com/wenyenhsu" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">wenyenhsu</a>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <i class="bi bi-linkedin text-2xl text-zinc-900 dark:text-zinc-100"></i>
-              <div>
-                <h5 class="font-semibold">LinkedIn</h5>
-                <a href="https://www.linkedin.com/in/wenyenhsu" target="_blank" rel="noopener noreferrer" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">Hank Hsu</a>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <i class="bi bi-file-earmark-person text-2xl text-zinc-900 dark:text-zinc-100"></i>
-              <div>
-                <h5 class="font-semibold">Resume</h5>
-                <a href="https://drive.google.com/file/d/1KCjxzDMm_ckO-GdMb_dFzb9YSg304ETm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">Resume Link</a>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <i class="bi bi-envelope-fill text-2xl text-zinc-900 dark:text-zinc-100"></i>
-              <div>
-                <h5 class="font-semibold">Email</h5>
-                <a href="mailto:godhanko@gmail.com" class="text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-300">godhanko@gmail.com</a>
               </div>
             </div>
           </div>
@@ -632,8 +627,8 @@
             <details class="fold-item ui-card ui-card-lift group open:bg-white dark:open:bg-zinc-900" open>
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">USC NLP Group Research Member</strong>
-                  <p class="mt-1 text-sm muted">USC Thomas Lord Department of Computer Science</p>
+                  <strong class="job-title">USC Thomas Lord Department of Computer Science</strong>
+                  <p class="mt-1 text-sm muted">USC NLP Group Research Member</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Jun 2026 – Present</span>
@@ -654,8 +649,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Operational Technology Engineer</strong>
-                  <p class="mt-1 text-sm muted">Entegris, Inc.</p>
+                  <strong class="job-title">Entegris, Inc.</strong>
+                  <p class="mt-1 text-sm muted">Operational Technology Engineer</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Oct 2023 – Jun 2025</span>
@@ -687,8 +682,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Information Technology Engineer</strong>
-                  <p class="mt-1 text-sm muted">TSMC</p>
+                  <strong class="job-title">TSMC</strong>
+                  <p class="mt-1 text-sm muted">Information Technology Engineer</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Sep 2020 – Oct 2023</span>
@@ -737,8 +732,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Research Assistant</strong>
-                  <p class="mt-1 text-sm muted">National Cheng Kung University</p>
+                  <strong class="job-title">National Cheng Kung University</strong>
+                  <p class="mt-1 text-sm muted">Research Assistant</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Aug 2019 – Jun 2020</span>
@@ -757,8 +752,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Teaching Assistant</strong>
-                  <p class="mt-1 text-sm muted">National Cheng Kung University</p>
+                  <strong class="job-title">National Cheng Kung University</strong>
+                  <p class="mt-1 text-sm muted">Teaching Assistant</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Jan 2019 – Jan 2020</span>
@@ -777,8 +772,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Internship</strong>
-                  <p class="mt-1 text-sm muted">NEUX Company</p>
+                  <strong class="job-title">NEUX Company</strong>
+                  <p class="mt-1 text-sm muted">Internship</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Jul.2018 – Aug.2018</span>
@@ -797,8 +792,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">Web Design (side project)</strong>
-                  <p class="mt-1 text-sm muted">Fresh Taiwan</p>
+                  <strong class="job-title">Fresh Taiwan</strong>
+                  <p class="mt-1 text-sm muted">Web Design (side project)</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Sept.2016 – Oct.2016</span>
@@ -817,8 +812,8 @@
             <details class="fold-item ui-card ui-card-lift group">
               <summary class="exp-summary">
                 <div class="exp-summary-main">
-                  <strong class="job-title">English Assistant</strong>
-                  <p class="mt-1 text-sm muted">Gloria Institution</p>
+                  <strong class="job-title">Gloria Institution</strong>
+                  <p class="mt-1 text-sm muted">English Assistant</p>
                 </div>
                 <div class="exp-summary-meta">
                   <span class="exp-date">Jul.2016 – Aug.2016</span>
@@ -895,35 +890,21 @@
           </div>
         </section>
 
-        <footer class="mt-12 border-t border-zinc-200 pt-6 text-center text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-          <p>&copy; 2026 Hank Hsu • Powered by GitHub</p>
-          <p class="mt-1 text-sm">Last updated: June 2026</p>
+        <footer id="site-footer" class="mt-16 scroll-mt-24 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+          <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div class="text-sm text-zinc-500 dark:text-zinc-400">
+              <p>&copy; 2026 Hank Hsu</p>
+              <p class="mt-1 text-xs">Last updated: June 2026</p>
+            </div>
+            <nav id="footer-nav" class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Contact">
+              <a class="footer-nav-link" href="mailto:godhanko@gmail.com">Email</a>
+              <a class="footer-nav-link" href="https://github.com/wenyenhsu" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="footer-nav-link" href="https://www.linkedin.com/in/wenyenhsu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="footer-nav-link" href="https://drive.google.com/file/d/1KCjxzDMm_ckO-GdMb_dFzb9YSg304ETm/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+            </nav>
+          </div>
         </footer>
       </main>
-
-      <!-- navigator -->
-      <aside class="hidden md:col-span-3 md:block">
-        <nav id="sidebar-nav" class="sticky top-24 flex flex-col text-right">
-          <span class="mb-2 font-bold"><i class="bi bi-file-richtext-fill me-2"></i>Navigation</span>
-          <a class="nav-link" href="#facts-about-me">Facts about me</a>
-          <a class="nav-link" href="#contact">Contact Info</a>
-          <a class="nav-link" href="#skills">Professional Highlights</a>
-          <a class="nav-link" href="#education">Education</a>
-          <a class="nav-link" href="#experience">Professional Experience</a>
-          <a class="nav-link" href="#projects">Recent Projects</a>
-          <a class="nav-link" href="#publication">Publication</a>
-          <a class="nav-link" href="#competition">Competition</a>
-          <div class="mt-4 space-y-2 border-t border-zinc-200 pt-4 dark:border-zinc-800">
-            <button type="button" class="btn-outline w-full" id="themeToggleBtn">
-              <i class="bi bi-moon"></i>Dark Mode
-            </button>
-            <a href="#contact" class="btn-primary w-full" id="sidebarContactBtn">
-              <i class="bi bi-envelope"></i>Contact Me
-            </a>
-          </div>
-        </nav>
-      </aside>
-    </div>
   </div>
 
   <!-- Mobile navigation panel -->
@@ -970,23 +951,37 @@
     }
 
     function updateThemeButton(theme) {
-      const buttons = [themeToggleBtn, document.getElementById('themeToggleBtnMobile')].filter(Boolean);
+      const buttons = [
+        themeToggleBtn,
+        document.getElementById('themeToggleBtnMobile'),
+        document.getElementById('themeToggleBtnMobileHeader'),
+      ].filter(Boolean);
       buttons.forEach((btn) => {
-        if (theme === 'dark') {
-          btn.innerHTML = '<i class="bi bi-sun"></i>Light Mode';
-        } else {
-          btn.innerHTML = '<i class="bi bi-moon"></i>Dark Mode';
+        btn.innerHTML = theme === 'dark'
+          ? '<i class="bi bi-sun"></i>'
+          : '<i class="bi bi-moon"></i>';
+        if (btn.id === 'themeToggleBtnMobile') {
+          btn.innerHTML = theme === 'dark'
+            ? '<i class="bi bi-sun"></i>Light Mode'
+            : '<i class="bi bi-moon"></i>Dark Mode';
+          btn.className = 'btn-outline w-full';
         }
       });
     }
 
-    applyTheme(getPreferredTheme());
-
-    themeToggleBtn.addEventListener('click', () => {
+    function toggleTheme() {
       const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
       localStorage.setItem(THEME_OVERRIDE_KEY, newTheme);
       applyTheme(newTheme);
-    });
+    }
+
+    applyTheme(getPreferredTheme());
+
+    themeToggleBtn.addEventListener('click', toggleTheme);
+    const themeToggleMobileHeader = document.getElementById('themeToggleBtnMobileHeader');
+    if (themeToggleMobileHeader) {
+      themeToggleMobileHeader.addEventListener('click', toggleTheme);
+    }
 
     systemThemeQuery.addEventListener('change', () => {
       if (!localStorage.getItem(THEME_OVERRIDE_KEY)) {
@@ -1024,23 +1019,22 @@
     function buildMobileNavLinks() {
       if (mobileNavLinks.childElementCount > 0) return;
 
-      document.querySelectorAll('#sidebar-nav .nav-link').forEach((link) => {
-        const clone = link.cloneNode(true);
+      document.querySelectorAll('#top-nav .top-nav-link').forEach((link) => {
+        const clone = document.createElement('a');
+        clone.href = link.getAttribute('href');
+        clone.className = 'nav-link';
+        clone.textContent = link.textContent;
         clone.addEventListener('click', () => closeMobileMenu());
         mobileNavLinks.appendChild(clone);
       });
 
-      const themeClone = themeToggleBtn.cloneNode(true);
+      const themeClone = document.createElement('button');
+      themeClone.type = 'button';
       themeClone.id = 'themeToggleBtnMobile';
-      themeClone.addEventListener('click', () => {
-        themeToggleBtn.click();
-      });
+      themeClone.className = 'btn-outline w-full';
+      themeClone.addEventListener('click', () => toggleTheme());
       mobileNavLinks.appendChild(themeClone);
-
-      const contactClone = document.getElementById('sidebarContactBtn').cloneNode(true);
-      contactClone.id = 'mobileContactBtn';
-      contactClone.addEventListener('click', () => closeMobileMenu());
-      mobileNavLinks.appendChild(contactClone);
+      updateThemeButton(root.classList.contains('dark') ? 'dark' : 'light');
     }
 
     function updateMobileScrollButtons() {
@@ -1132,14 +1126,18 @@
 
     window.addEventListener('scroll', () => {
       let current = '';
-      document.querySelectorAll('section').forEach((section) => {
-        if (pageYOffset >= section.offsetTop - 100) {
+      document.querySelectorAll('main section, #site-footer').forEach((section) => {
+        if (pageYOffset >= section.offsetTop - 120) {
           current = section.getAttribute('id');
         }
       });
-      document.querySelectorAll('#sidebar-nav .nav-link, #mobileNavLinks .nav-link').forEach((link) => {
+      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 40) {
+        current = 'site-footer';
+      }
+      document.querySelectorAll('#top-nav .top-nav-link, #mobileNavLinks .nav-link').forEach((link) => {
         link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
+        const href = link.getAttribute('href').substring(1);
+        if (href === current || (current === 'competition' && href === 'publication')) {
           link.classList.add('active');
         }
       });
