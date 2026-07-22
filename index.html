@@ -127,7 +127,9 @@
 
     .hero-photo-frame {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      max-width: 26rem;
+      margin-left: auto;
+      aspect-ratio: 3 / 4;
       border-radius: 1.25rem;
       overflow: hidden;
       background: #f4f4f5;
@@ -140,15 +142,19 @@
     }
     .hero-photo {
       position: absolute;
-      left: 50%;
-      top: 10%;
-      height: 90%;
-      width: auto;
-      max-width: 100%;
-      transform: translateX(-50%);
-      object-fit: contain;
-      object-position: center top;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
       display: block;
+    }
+    @media (max-width: 1023px) {
+      .hero-photo-frame {
+        max-width: 22rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .projects-grid {
@@ -437,6 +443,9 @@
               <p class="mt-3 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Focused on developing trustworthy AI systems that deliver operational insights and real-world business impact. Currently pursuing an MSc in Applied Data Science at USC.
               </p>
+              <p class="mt-3 text-xl text-zinc-600 dark:text-zinc-300">
+                Fight On !!
+              </p>
               <div class="mt-5 flex flex-wrap gap-2">
                 <span class="hero-keyword hero-keyword--blue">Data Engineering</span>
                 <span class="hero-keyword hero-keyword--violet">LLM Applications</span>
@@ -454,8 +463,8 @@
                 </a>
               </div>
             </div>
-            <div class="order-1 mx-auto w-full max-w-md lg:order-2 lg:mx-0 lg:max-w-none">
-              <div class="hero-photo-frame">
+            <div class="order-1 flex w-full justify-center lg:order-2 lg:justify-end">
+              <div class="hero-photo-frame w-full">
                 <img src="image/self_photo.jpg" alt="Hank Hsu" class="hero-photo" />
               </div>
             </div>
