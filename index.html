@@ -45,7 +45,7 @@
         @apply p-5 sm:p-6;
       }
       .section-title {
-        @apply mb-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
+        @apply mx-auto mb-6 flex w-fit items-center justify-center gap-2 border-b-2 border-zinc-900 pb-2 text-center text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
       }
       .top-nav-link {
         @apply text-[0.7rem] font-medium uppercase tracking-[0.14em] text-zinc-500 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50;
@@ -391,21 +391,24 @@
 <body class="bg-zinc-50 font-sans text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50">
   <!-- Top navigation -->
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/80 bg-zinc-50/90 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/90">
-    <div class="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-      <a href="#" class="shrink-0 text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Wen-Yen Hsu</a>
-      <nav id="top-nav" class="hidden items-center gap-5 md:flex lg:gap-7">
-        <a class="top-nav-link" href="#facts-about-me">About</a>
-        <a class="top-nav-link" href="#skills">Highlights</a>
-        <a class="top-nav-link" href="#education">Education</a>
-        <a class="top-nav-link" href="#experience">Experience</a>
-        <a class="top-nav-link" href="#projects">Projects</a>
-        <a class="top-nav-link" href="#publication">Publication</a>
-        <a class="top-nav-link" href="#site-footer">Contact</a>
-        <button type="button" id="themeToggleBtn" class="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Toggle theme">
-          <i class="bi bi-moon"></i>
-        </button>
-      </nav>
-      <button type="button" id="themeToggleBtnMobileHeader" class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 md:hidden dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Toggle theme">
+    <div class="relative mx-auto flex h-14 max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-5 lg:gap-7">
+        <a href="#" class="shrink-0 text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Wen-Yen Hsu</a>
+        <nav id="top-nav" class="hidden items-center gap-5 md:flex lg:gap-6">
+          <a class="top-nav-link" href="#facts-about-me">About</a>
+          <a class="top-nav-link" href="#skills">Highlights</a>
+          <a class="top-nav-link" href="#education">Education</a>
+          <a class="top-nav-link" href="#experience">Experience</a>
+          <a class="top-nav-link" href="#projects">Projects</a>
+          <a class="top-nav-link" href="#publication">Publication</a>
+          <a class="top-nav-link" href="#competition">Competition</a>
+          <a class="top-nav-link" href="#site-footer">Contact</a>
+        </nav>
+      </div>
+      <button type="button" id="themeToggleBtn" class="absolute right-4 hidden h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 sm:right-6 md:inline-flex dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 lg:right-8" aria-label="Toggle theme">
+        <i class="bi bi-moon"></i>
+      </button>
+      <button type="button" id="themeToggleBtnMobileHeader" class="absolute right-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 md:hidden dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Toggle theme">
         <i class="bi bi-moon"></i>
       </button>
     </div>
@@ -441,14 +444,14 @@
           <h2 class="section-title"><i class="bi bi-person-arms-up"></i>Facts about me</h2>
           <div class="grid gap-4 sm:grid-cols-2">
             <div class="ui-card">
-              <div class="ui-card-body">
-                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-briefcase"></i>Professional</h5>
+              <div class="ui-card-body text-center sm:text-left">
+                <h5 class="mb-3 flex items-center justify-center gap-2 text-lg font-semibold sm:justify-start"><i class="bi bi-briefcase"></i>Professional</h5>
                 <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">IT/OT Engineer with 5 years of experience in semiconductor manufacturing, combining expertise in infrastructure, automation, and data engineering with hands-on experience building LLM-powered applications, RAG systems, and machine learning solutions. Focused on developing trustworthy AI systems that deliver operational insights and real-world business impact.</p>
               </div>
             </div>
             <div class="ui-card">
-              <div class="ui-card-body">
-                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-heart"></i>Personal Interests</h5>
+              <div class="ui-card-body text-center sm:text-left">
+                <h5 class="mb-3 flex items-center justify-center gap-2 text-lg font-semibold sm:justify-start"><i class="bi bi-heart"></i>Personal Interests</h5>
                 <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">Outside of work, I enjoy badminton, outdoor adventures, and analyzing the art of cinema.</p>
               </div>
             </div>
@@ -895,11 +898,11 @@
 
   <!-- Bottom navigation (fixed) -->
   <footer id="site-footer" class="fixed inset-x-0 bottom-0 z-50 border-t border-zinc-200/80 bg-zinc-50/90 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/90">
-    <div class="mx-auto flex min-h-14 max-w-7xl flex-col justify-center gap-2 px-4 py-3 sm:h-14 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-0 lg:px-8">
+    <div class="mx-auto flex min-h-14 max-w-7xl flex-col items-center justify-center gap-2 px-4 py-3 sm:h-14 sm:flex-row sm:gap-6 sm:px-6 sm:py-0 lg:px-8">
       <div class="text-xs text-zinc-500 dark:text-zinc-400 sm:text-sm">
         <span>&copy; 2026 Hank Hsu</span>
       </div>
-      <nav id="footer-nav" class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Contact">
+      <nav id="footer-nav" class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2" aria-label="Contact">
         <a class="footer-nav-link" href="mailto:godhanko@gmail.com">Email</a>
         <a class="footer-nav-link" href="https://github.com/wenyenhsu" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="footer-nav-link" href="https://www.linkedin.com/in/wenyenhsu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -1138,7 +1141,7 @@
       document.querySelectorAll('#top-nav .top-nav-link, #mobileNavLinks .nav-link').forEach((link) => {
         link.classList.remove('active');
         const href = link.getAttribute('href').substring(1);
-        if (href === current || (current === 'competition' && href === 'publication')) {
+        if (href === current) {
           link.classList.add('active');
         }
       });
