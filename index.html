@@ -125,16 +125,30 @@
     :root { color-scheme: light dark; }
     html.dark { color-scheme: dark; }
 
-    .hero-photo {
-      display: block;
+    .hero-photo-frame {
       width: 100%;
       aspect-ratio: 1 / 1;
-      object-fit: cover;
       border-radius: 1.25rem;
+      overflow: hidden;
+      background: #f4f4f5;
+      position: relative;
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
     }
-    html.dark .hero-photo {
+    html.dark .hero-photo-frame {
+      background: #27272a;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+    .hero-photo {
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      height: 90%;
+      width: auto;
+      max-width: 100%;
+      transform: translateX(-50%);
+      object-fit: contain;
+      object-position: center top;
+      display: block;
     }
 
     .projects-grid {
@@ -441,7 +455,9 @@
               </div>
             </div>
             <div class="order-1 mx-auto w-full max-w-md lg:order-2 lg:mx-0 lg:max-w-none">
-              <img src="image/self_photo.jpg" alt="Hank Hsu" class="hero-photo" />
+              <div class="hero-photo-frame">
+                <img src="image/self_photo.jpg" alt="Hank Hsu" class="hero-photo" />
+              </div>
             </div>
           </div>
         </header>
