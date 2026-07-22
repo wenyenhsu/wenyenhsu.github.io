@@ -108,7 +108,7 @@
         @apply text-zinc-500 dark:text-zinc-400;
       }
       .hero-keyword {
-        @apply rounded-full border px-3 py-1 text-sm font-medium tracking-wide;
+        @apply whitespace-nowrap rounded-full border px-3 py-1 text-sm font-medium tracking-wide;
       }
       .hero-keyword--blue {
         @apply border-sky-200 bg-sky-50 text-sky-800 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300;
@@ -455,12 +455,12 @@
               <p class="mt-3 text-xl text-zinc-600 dark:text-zinc-300">
                 Fight On !!
               </p>
-              <div class="mt-5 grid max-w-xl grid-cols-2 gap-2 sm:grid-cols-3">
-                <span class="hero-keyword hero-keyword--blue justify-self-start">Data Engineering</span>
-                <span class="hero-keyword hero-keyword--violet justify-self-start">LLM Applications</span>
-                <span class="hero-keyword hero-keyword--teal justify-self-start">Trustworthy AI</span>
-                <span class="hero-keyword hero-keyword--amber justify-self-start">Project Leadership</span>
-                <span class="hero-keyword hero-keyword--orange justify-self-start">Semiconductor Systems</span>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="hero-keyword hero-keyword--blue">Data Engineering</span>
+                <span class="hero-keyword hero-keyword--violet">LLM Applications</span>
+                <span class="hero-keyword hero-keyword--teal">Trustworthy AI</span>
+                <span class="hero-keyword hero-keyword--amber">Project Leadership</span>
+                <span class="hero-keyword hero-keyword--orange whitespace-nowrap">Semiconductor Systems</span>
               </div>
               <div class="mt-8 flex flex-wrap items-center gap-3">
                 <a href="https://drive.google.com/file/d/1KCjxzDMm_ckO-GdMb_dFzb9YSg304ETm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary px-5">
