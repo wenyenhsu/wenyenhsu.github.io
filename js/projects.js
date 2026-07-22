@@ -13,7 +13,7 @@
  */
 const PROJECTS = [
     {
-    slug: 'Cast-it',
+    slug: 'cast-it',
     title: 'Cast-it',
     description:
       'Delivers personalized recommendations for LLM-generated podcasts using RAG-based knowledge retrieval.',
