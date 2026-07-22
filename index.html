@@ -45,7 +45,7 @@
         @apply p-5 sm:p-6;
       }
       .section-title {
-        @apply mb-6 flex w-fit items-center gap-2 border-b-2 border-zinc-900 pb-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
+        @apply mb-6 mr-auto flex w-fit items-center justify-start gap-2 border-b-2 border-zinc-900 pb-2 text-left text-2xl font-semibold tracking-tight text-zinc-900 dark:border-zinc-100 dark:text-zinc-50;
       }
       .top-nav-link {
         @apply text-[0.7rem] font-medium uppercase tracking-[0.14em] text-zinc-500 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50;
@@ -122,12 +122,51 @@
     :root { color-scheme: light dark; }
     html.dark { color-scheme: dark; }
 
-    .hero-photo {
+    .hero-photo-stage {
+      position: relative;
       width: 100%;
+      isolation: isolate;
+    }
+    .hero-photo-stage::before {
+      content: '';
+      position: absolute;
+      inset: 8% -6% -8% 8%;
+      z-index: 0;
+      border-radius: 1.5rem;
+      background-image:
+        linear-gradient(145deg, rgba(24, 24, 27, 0.28), rgba(24, 24, 27, 0.55)),
+        url('image/trojan.jpg');
+      background-size: cover;
+      background-position: center 28%;
+      filter: saturate(0.9);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.18);
+    }
+    html.dark .hero-photo-stage::before {
+      background-image:
+        linear-gradient(145deg, rgba(9, 9, 11, 0.45), rgba(9, 9, 11, 0.72)),
+        url('image/trojan.jpg');
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+    }
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 88%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 1.25rem;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    }
+    html.dark .hero-photo {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+    @media (max-width: 1023px) {
+      .hero-photo-stage::before {
+        inset: 10% -4% -6% 10%;
+      }
+      .hero-photo {
+        width: 90%;
+      }
     }
 
     .projects-grid {
@@ -383,7 +422,7 @@
           <a class="top-nav-link" href="#projects">Projects</a>
           <a class="top-nav-link" href="#publication">Publication</a>
           <a class="top-nav-link" href="#competition">Competition</a>
-          <a class="top-nav-link" href="#site-footer">Contact</a>
+          <a class="top-nav-link" href="mailto:godhanko@gmail.com">Contact</a>
         </nav>
       </div>
       <button type="button" id="themeToggleBtn" class="absolute right-4 hidden h-8 w-8 items-center justify-center rounded-md border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 sm:right-6 md:inline-flex dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 lg:right-8" aria-label="Toggle theme">
@@ -428,35 +467,18 @@
                   <i class="bi bi-download"></i>Resume
                 </a>
                 <a href="#projects" class="btn-outline px-5">View Projects</a>
-                <a href="#site-footer" class="text-sm font-medium text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+                <a href="mailto:godhanko@gmail.com" class="text-sm font-medium text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
                   Contact →
                 </a>
               </div>
             </div>
             <div class="order-1 mx-auto w-full max-w-md lg:order-2 lg:mx-0 lg:max-w-none">
-              <img src="image/self_photo.jpg" alt="Hank Hsu" class="hero-photo" />
+              <div class="hero-photo-stage">
+                <img src="image/self_photo.jpg" alt="Hank Hsu" class="hero-photo" />
+              </div>
             </div>
           </div>
         </header>
-
-        <!-- Facts about me -->
-        <section id="facts-about-me" class="mb-12 scroll-mt-24">
-          <h2 class="section-title"><i class="bi bi-person-arms-up"></i>Facts about me</h2>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="ui-card">
-              <div class="ui-card-body">
-                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-briefcase"></i>Professional</h5>
-                <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">IT/OT Engineer with 5 years of experience in semiconductor manufacturing, combining expertise in infrastructure, automation, and data engineering with hands-on experience building LLM-powered applications, RAG systems, and machine learning solutions. Focused on developing trustworthy AI systems that deliver operational insights and real-world business impact.</p>
-              </div>
-            </div>
-            <div class="ui-card">
-              <div class="ui-card-body">
-                <h5 class="mb-3 flex items-center gap-2 text-lg font-semibold"><i class="bi bi-heart"></i>Personal Interests</h5>
-                <p class="leading-relaxed text-zinc-600 dark:text-zinc-300">Outside of work, I enjoy badminton, outdoor adventures, and analyzing the art of cinema.</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- Professional Highlights -->
         <section id="skills" class="mb-12 scroll-mt-24">
